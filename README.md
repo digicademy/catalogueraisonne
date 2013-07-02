@@ -18,3 +18,5 @@ Installation
 4. Import the sample dataset that you will find in the Resources/Private/T3D/ folder of the extension. IMPORTANT: Tick the "Force uids" option before you import the t3d.
 5. Have fun with testing.
 
+Note: The TYPO3 version requirement of this extension is set to 4.7 since it has been developed on that basis. It will not work on older versions of TYPO3, but it might work on higher versions (6+) without any problems.
+
