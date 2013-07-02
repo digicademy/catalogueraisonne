@@ -1,0 +1,11 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:form action="search" id="tx_catalogueraisonne_literaturesearch-form" class="tx_catalogueraisonne-searchform">
+	<fieldset>
+		<legend>{f:translate(key: 'literature', default: 'Literature Search')}</legend>
+		<label class="skip" for="searchterm">{f:translate(key: 'literature.entersearchterm', default: 'Enter searchterm:')}</label>
+		<f:form.textfield id="searchterm" name="searchterm" />
+		<label for="submit" class="skip">{f:translate(key: 'literature.submitlabel', default: 'Submit')}</label>
+		<f:form.submit id="submit" class="button" name="sumbit" value="{f:translate(key: 'literature.search', default: 'Search')}" />
+	</fieldset>
+</f:form>

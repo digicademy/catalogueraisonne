@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Context Sensitive Help (CSH) for table tx_catalogueraisonne_domain_model_incipits</description>
+        <type>CSH</type>
+        <csh_table>tx_catalogueraisonne_domain_model_incipits</csh_table>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+			<label index="instrumentation.description">Information about the instrumentation and cast of this incipit</label>
+			<label index="tempo.description">The tempo of the incipit</label>
+			<label index="length.description">The whole length of this piece</label>
+			<label index="textinfos.description">Textual information of this piece</label>
+			<label index="score.description">Musicological information</label>
+			<label index="parts.description">Parts to which this incipit belongs</label>			
+		</languageKey>
+        <languageKey index="de" type="array">
+			<label index="instrumentation.description">Informationen über Besetzung und Persona dieses Incipits</label>
+			<label index="tempo.description">Das Tempo des Incipits</label>
+			<label index="length.description">Länge des gesamten Stücks</label>
+			<label index="textinfos.description">Textinformationen</label>
+			<label index="score.description">Noteninformationen (Format steht noch nicht fest)</label>
+			<label index="score.description">Teile zu denen dieses Incipit gehört</label>
+		</languageKey>		
+    </data>
+</T3locallang>

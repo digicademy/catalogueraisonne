@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Context Sensitive Help (CSH) for table tx_catalogueraisonne_domain_model_persons</description>
+        <type>CSH</type>
+        <csh_table>tx_catalogueraisonne_domain_model_persons</csh_table>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+			<label index="name.description">The name of the person</label>
+			<label index="name_variants.description">Namevariants of the persons name</label>
+			<label index="titles.description">One or more titles the person has</label>						
+			<label index="curriculum_vitae.description">Biographical information of the person</label>
+			<label index="pnd.description">The PND number of the Person</label>
+			<label index="related_works.description">Works related to the person</label>
+			<label index="related_sources.description">Sources related to the person</label>			
+		</languageKey>
+        <languageKey index="de" type="array">
+			<label index="name.description">Der Name der Person</label>
+			<label index="name_variants.description">Namensvarianten der Person</label>
+			<label index="titles.description">Ein oder mehrere Titel der Person</label>						
+			<label index="curriculum_vitae.description">Biographische Informationen</label>
+			<label index="pnd.description">Die PND der Person. Siehe http://de.wikipedia.org/wiki/Personennamendatei</label>
+			<label index="related_works.description">Zu dieser Person gehörende Werke</label>
+			<label index="related_sources.description">Zu dieser Person gehörende Quellen</label>			
+		</languageKey>		
+    </data>
+</T3locallang>

@@ -1,0 +1,76 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:form action="search" controller="Sources" id="tx_catalogueraisonne_sources-form" class="tx_catalogueraisonne-searchform" pageUid="1656" section="maincontent">
+
+	<fieldset id="sources">
+		<legend><f:translate key="sources.search"/></legend>
+
+		<label for="work"><f:translate key="sources.work" /></label>
+		<f:form.select name="pids" multiple="1" value="{arguments.pids}" options="{works}" optionValueField="pid" optionLabelField="title" />
+
+	</fieldset>
+
+	<fieldset id="worksfilter">
+		<legend><f:translate key="works.sourcesfilter"/></legend>
+
+		<label for="category"><f:translate key="sources.category" /></label>
+		<f:form.select name="category" value="{arguments.category}" options="{
+			0 : '',
+			1 : '{f:translate(key: \'sources.category.I.1\')}',
+			2 : '{f:translate(key: \'sources.category.I.2\')}'}" 
+		/>
+
+		<label for="type"><f:translate key="sources.type" /></label>
+		<f:form.select name="type" value="{arguments.type}" options="{
+			0 : '',
+			1 : '{f:translate(key: \'sources.type.I.1\')}',
+			2 : '{f:translate(key: \'sources.type.I.2\')}'}" 
+		/>
+
+		<label for="subtype"><f:translate key="sources.subtype" /></label>
+		<f:form.select name="subtype" value="{arguments.subtype}" options="{
+			0 : '',
+			10 : '{f:translate(key: \'sources.subtype.I.10\')}',
+			20 : '{f:translate(key: \'sources.subtype.I.20\')}',
+			30 : '{f:translate(key: \'sources.subtype.I.30\')}',
+			40 : '{f:translate(key: \'sources.subtype.I.40\')}',
+			50 : '{f:translate(key: \'sources.subtype.I.50\')}'}" 
+		/>
+
+		<label for="kind"><f:translate key="sources.kind" /></label>
+		<f:form.select name="kind" value="{arguments.kind}" options="{
+			0 : '',
+			10 : '{f:translate(key: \'sources.kind.I.10\')}',
+			20 : '{f:translate(key: \'sources.kind.I.20\')}',
+			30 : '{f:translate(key: \'sources.kind.I.30\')}',
+			40 : '{f:translate(key: \'sources.kind.I.40\')}',
+			50 : '{f:translate(key: \'sources.kind.I.50\')}',
+			60 : '{f:translate(key: \'sources.kind.I.60\')}',
+			70 : '{f:translate(key: \'sources.kind.I.70\')}',
+			80 : '{f:translate(key: \'sources.kind.I.80\')}'}" 
+		/>
+
+		<label for="quality"><f:translate key="sources.quality" /></label>
+		<f:form.select name="quality" value="{arguments.quality}" options="{
+			0 : '',
+			1 : '{f:translate(key: \'sources.quality.I.1\')}',
+			2 : '{f:translate(key: \'sources.quality.I.2\')}',
+			3 : '{f:translate(key: \'sources.quality.I.3\')}',
+			4 : '{f:translate(key: \'sources.quality.I.4\')}'}" 
+		/>
+
+		<p class="timelimitation"><f:translate key="timelimitation" /></p>
+
+		<label for="sources_time_from" class="timelimitation"><f:translate key="time_from" /></label>
+		<f:form.textfield id="sources_time_from" name="sourcesTimeFrom" value="{arguments.sourcesTimeFrom}" class="timelimitation" />
+
+		<label for="sources_time_to" class="timelimitation"><f:translate key="time_to" /></label>
+		<f:form.textfield id="sources_time_to" name="sourcesTimeTo" value="{arguments.sourcesTimeTo}" class="timelimitation" />
+	</fieldset>
+
+	<fieldset id="submitsearch">
+		<legend class="skip"><f:translate key="submit"/></legend>
+		<f:form.submit id="submit" class="button" name="submit" value="{f:translate(key: 'works.search', default: 'Search')}" />
+	</fieldset>
+
+</f:form>

@@ -1,0 +1,66 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="2Columns" />
+
+<f:section name="Maincontent">
+	<f:if condition="{settings.mode} == 10">
+		<h1 class="csc-firstHeader"><f:translate key="registers.works" /></h1>
+		<p class="reset"><f:link.page pageUid="1643" class="button reset"><f:translate key="registers.filters.reset" /></f:link.page></p>
+		<f:render partial="Registers/Alphabet" arguments="{_all}" />
+	</f:if>
+
+	<f:if condition="{settings.mode} == 20">
+		<h1 class="csc-firstHeader"><f:translate key="registers.places" /></h1>
+		<p class="reset"><f:link.page pageUid="1644" class="button reset"><f:translate key="registers.filters.reset" /></f:link.page></p>
+		<f:render partial="Registers/Alphabet" arguments="{_all}" />
+	</f:if>
+
+	<f:if condition="{settings.mode} == 30">
+		<h1 class="csc-firstHeader"><f:translate key="registers.persons" /></h1>
+		<p class="reset"><f:link.page pageUid="1645" class="button reset"><f:translate key="registers.filters.reset" /></f:link.page></p>
+		<f:render partial="Registers/Alphabet" arguments="{_all}" />
+	</f:if>
+
+	<f:if condition="{settings.mode} == 40">
+		<h1 class="csc-firstHeader"><f:translate key="registers.archives" /></h1>
+		<p class="reset"><f:link.page pageUid="1646" class="button reset"><f:translate key="registers.filters.reset" /></f:link.page></p>
+		<f:render partial="Registers/Alphabet" arguments="{_all}" />
+	</f:if>
+</f:section>
+
+<f:section name="Additionalcontent">
+
+	<f:render partial="Registers/Registernav" />
+
+	<h2><f:translate key="registers.filters" /></h2>
+
+	<!-- if Registers/works -->
+	<f:if condition="{settings.mode} == 10">
+		<h4><f:translate key="registers.filters.label" /> <f:translate key="works.type" /></h4>
+		<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.FiltersWorks.type" />
+		<h4><f:translate key="registers.filters.label" /> <f:translate key="works.original_language" /></h4>
+		<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.FiltersWorks.language" />
+		<h4><f:translate key="registers.filters.label" /> <f:translate key="works.authenticity" /></h4>
+		<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.FiltersWorks.authenticity" />
+	</f:if>
+
+	<!-- if Registers/places -->
+	<f:if condition="{settings.mode} == 20">
+		<h4><f:translate key="registers.filters.label" /> <f:translate key="places.country" /></h4>
+		<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.FiltersPlaces.country" />
+	</f:if>
+
+	<!-- if Registers/persons -->
+	<f:if condition="{settings.mode} == 30">
+		<h4><f:translate key="registers.filters.persons.works" /></h4>
+		<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.FiltersPersons.functionWorks" />
+		<h4><f:translate key="registers.filters.persons.sources" /></h4>
+		<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.FiltersPersons.functionSources" />
+	</f:if>
+
+	<!-- if Registers/archives -->
+	<f:if condition="{settings.mode} == 40">
+		<h4><f:translate key="registers.filters.label" /> <f:translate key="places.country" /></h4>
+		<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.FiltersArchives.country" />
+	</f:if>
+</f:section>

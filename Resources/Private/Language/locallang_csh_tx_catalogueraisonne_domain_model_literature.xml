@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Context Sensitive Help (CSH) for table tx_catalogueraisonne_domain_model_literature</description>
+        <type>CSH</type>
+        <csh_table>tx_catalogueraisonne_domain_model_literature</csh_table>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+			<label index="aut.description">The author of the reference</label>			
+			<label index="titel.description">The title of the work</label>
+			<label index="ar.description">Is it a copy or an original</label>			
+			<label index="series.description">Series or collection</label>
+			<label index="ort.description">place of publication</label>
+			<label index="jahr.description">year of publication</label>
+        	<label index="page.description">page</label>
+        	<label index="isbn.description">ISBN or ISSN number</label>
+			<label index="cod.description">bibtype and/or information of/about the reference</label>
+			<label index="qn.description">quoted from</label>
+			<label index="bib.description">Library in which it is kept</label>
+		</languageKey>
+        <languageKey index="de" type="array">
+			<label index="aut.description">Autoren des Werkes</label>			
+			<label index="titel.description">Der Titel des Werkes</label>
+			<label index="ar.description">Liegt das Werk im Original oder als Kopie vor</label>			
+			<label index="series.description">Erschienen in</label>
+			<label index="ort.description">Publikationsort</label>
+			<label index="jahr.description">Publicationsjahr</label>
+        	<label index="ort.description">Publikationsort</label>
+        	<label index="page.description">Buchseite</label>
+			<label index="isbn.description">ISBN oder ISSN Nummer</label>
+			<label index="qn.description">Quellennachweis</label>
+			<label index="bib.description">Vorhanden in Bibliothek</label>
+		</languageKey>		
+    </data>
+</T3locallang>

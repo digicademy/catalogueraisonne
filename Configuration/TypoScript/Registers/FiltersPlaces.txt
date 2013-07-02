@@ -1,0 +1,39 @@
+lib.tx_catalogueraisonne.registers {
+
+	FiltersPlaces {
+		country = CONTENT
+		country {
+			wrap = <ul>|</ul>
+			table = tx_catalogueraisonne_domain_model_places
+			select {
+				pidInList = 1367
+				selectFields = COUNT(DISTINCT tx_catalogueraisonne_domain_model_places.uid) AS count, static_countries.cn_short_de AS country, static_countries.uid
+				leftjoin = static_countries ON tx_catalogueraisonne_domain_model_places.country = static_countries.uid
+				where = tx_catalogueraisonne_domain_model_places.hidden != 1 AND tx_catalogueraisonne_domain_model_places.deleted != 1 AND tx_catalogueraisonne_domain_model_places.country > 0
+				groupBy = static_countries.uid
+				orderBy = static_countries.cn_short_de
+			}
+			renderObj = TEXT
+			renderObj {
+				cObject = TEXT
+				cObject {
+					field = country
+					noTrimWrap = || ({field:count})|
+				}
+				insertData = 1
+				noTrimWrap = |<li>|</li>|
+				typolink {
+					parameter = 1644
+					additionalParams.dataWrap = &tx_catalogueraisonne_registers[filters][country]={field:uid}&tx_catalogueraisonne_registers[action]=show&tx_catalogueraisonne_registers[controller]=Registers
+					useCacheHash = 1
+					ATagParams = class="act"
+					ATagParams.if {
+						value.data = GP : tx_catalogueraisonne_registers|filters|country
+						equals.field = country
+					}
+				}
+			}
+		}
+	}
+
+}

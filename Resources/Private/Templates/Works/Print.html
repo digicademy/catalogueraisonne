@@ -1,0 +1,401 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="1Column" />
+
+<f:section name="Maincontent">
+
+	<h1 class="csc-firstHeader">{work.title}</h1>
+
+	<div id="general">
+		<h2>{work.naming}</h2>
+
+		<p><strong>Textdichter:</strong>
+		<f:for each="{work.relatedPersons}" as="relatedPerson">
+			<f:if condition="{relatedPerson.function} == 50">
+				 {relatedPerson.person.name}
+			</f:if>
+		</f:for>
+		</p>
+
+		<p><strong><f:translate key="works.type" />:</strong> <f:translate key="works.type.I.{work.type}" /></p>
+
+		<h3>Signaturen</h3>
+		<ul>
+			<li style="list-style: none;"><strong>GluckWV-Nr.:</strong> {work.signature}</li>
+			<li style="list-style: none;"><strong>GGA-Nr.:</strong> {work.gga}</li>
+			<li style="list-style: none;"><strong>Wotquenne-Nr.:</strong> {work.wotquenneNumber}</li>
+			<li style="list-style: none;"><strong>URN:</strong> {work.urn}</li>
+		</ul>
+
+		<p><strong><f:translate key="works.dedication" />:</strong> {work.dedication}</p>
+
+		<h3><f:translate key="works.instrumentation" />:</h3>
+		<f:if condition="{work.instrumentation}">
+			<f:then>
+				<f:format.html>{work.instrumentation}</f:format.html>
+			</f:then>
+			<f:else>
+				<p><f:translate key="noinformation" /></p>
+			</f:else>
+		</f:if>
+
+		<p><strong><f:translate key="works.original_language" />:</strong> <f:translate key="works.original_language.I.{work.originalLanguage}" /></p>
+
+		<p><strong><f:translate key="works.authenticity" />:</strong> <f:translate key="works.authenticity.I.{work.authenticity}" /></p>
+	</div>
+
+	<div id="genesis">
+
+		<h2>Genese</h2>
+		<hr/>
+
+		<h3><f:translate key="works.genesis" />:</h3>
+		<f:if condition="{work.genesis}">
+			<f:then>
+				<f:format.html>{work.genesis}</f:format.html>
+			</f:then>
+			<f:else>
+				<p><f:translate key="noinformation" /></p>
+			</f:else>
+		</f:if>
+
+		<h3>Werkgeschichte:</h3>
+		<f:if condition="{work.history}">
+			<f:then>
+				<f:format.html>{work.history}</f:format.html>
+			</f:then>
+			<f:else>
+				<p><f:translate key="noinformation" /></p>
+			</f:else>
+		</f:if>
+
+		<h3>Zeitgenössische Berichte:</h3>
+		<f:if condition="{work.commentary}">
+			<f:then>
+				<f:format.html>{work.commentary}</f:format.html>
+			</f:then>
+			<f:else>
+				<p><f:translate key="noinformation" /></p>
+			</f:else>
+		</f:if>
+	</div>
+
+	<div id="premiere">
+
+		<h2>Uraufführung</h2>
+
+		<p><strong><f:translate key="works.firststaging" />:</strong> {work.placeOfPremiere.name}, {work.placeOfPremiere.locality}, {work.dateRange.dateComment}</p>
+
+		<h3>Weitere Spielorte:</h3>
+		<f:if condition="{work.stagingPlaces}">
+			<ul>
+			<f:for each="{work.stagingPlaces}" as="stagingPlace">
+				<li>{stagingPlace.name}, {stagingPlace.locality}</li>
+			</f:for>
+			</ul>
+		</f:if>
+
+		<h3><f:translate key="works.premiere" />:</h3>
+		<f:if condition="{work.premiere}">
+			<f:then>
+				<f:format.html>{work.premiere}</f:format.html>
+			</f:then>
+			<f:else>
+				<p><f:translate key="noinformation" /></p>
+			</f:else>
+		</f:if>
+	</div>
+
+	<div id="parts">
+
+		<h2><f:translate key="works.parts" /></h2>
+
+		<f:if condition="{work.parts}">
+			<f:then>
+
+				<ol>
+				<f:for each="{work.parts}" as="part">
+					<li style="list-style: none; font-size: 1em;">
+						<h3 style="margin-top: 0;">{part.title}</h3>
+
+						<p>
+							Akt: 
+							<f:if condition="{part.act} > 0">
+								<f:then>
+									{part.act}, 
+								</f:then>
+								<f:else>
+									unbestimmt, 
+								</f:else>
+							</f:if>
+							Szene: 
+							<f:if condition="{part.scene} > 0">
+								<f:then>
+									<f:if condition="{part.scene} == 99">
+										<f:then>
+											letzte Szene
+										</f:then>
+										<f:else>
+											{part.scene}
+										</f:else>
+									</f:if>
+								</f:then>
+								<f:else>
+									unbestimmt
+								</f:else>
+							</f:if>
+						</p>
+
+						<f:if condition="{part.incipits}">
+							<h3>Incipits</h3>
+							<ol style="margin-left: 3em;">
+							<f:for each="{part.incipits}" as="incipit">
+								<li style="list-style: none; margin: 1em 0 1em -1em;">
+									<f:if condition="{incipit.instrumentation}">
+										<f:then><em>{incipit.instrumentation}</em></f:then>
+										<f:else><em><f:translate key="noinformation" /></em></f:else>
+									</f:if>
+								</li>
+								<f:if condition="{incipit.tempo}">
+								<li style="list-style: none;">Tempo: {incipit.tempo}</li>
+								</f:if>
+								<f:if condition="{incipit.length}">
+								<li style="list-style: none;">Länge: {incipit.length}</li>
+								</f:if>
+								<f:if condition="{incipit.textinfos}">
+								<li style="list-style: none;">Text: {incipit.textinfos}</li>
+								</f:if>
+							</f:for>
+							</ol>
+						</f:if>
+
+					</li>
+				</f:for>
+				</ol>
+
+			</f:then>
+			<f:else>
+				<p><f:translate key="noinformation" /></p>
+			</f:else>
+		</f:if>
+	</div>
+
+	<div id="borrowings">
+		<h2>Entlehnungen</h2>
+
+		<f:if condition="{borrowings}">
+
+			<f:then>
+				<f:for each="{borrowings}" as="part">
+
+					<h3>{part.title}</h3>
+
+					<f:if condition="{part.borrowedFrom}">
+						<p style="margin-left: 1em;"><em>Entlehnt aus: </em> 
+						<f:for each="{part.borrowedFrom}" as="borrowedPart">
+							{borrowedPart.works.title}, {borrowedPart.title}
+							<br/>
+						</f:for>
+						</p>
+					</f:if>
+					<f:if condition="{part.featuredIn}">
+						<p style="margin-left: 1em;"><em>Übernommen in: </em> 
+						<f:for each="{part.featuredIn}" as="featuredPart">
+							{featuredPart.works.title}, {featuredPart.title}
+							<br/>
+						</f:for>
+						</p>
+					</f:if>
+					<f:if condition="{part.externalSource}">
+						<div style="margin-left: 1em;">
+							<p><em>Entlehnungen fremder Werke</em></p>
+							<f:format.html>{part.externalSource}</f:format.html>
+						</div>
+					</f:if>
+	
+				</f:for>
+			</f:then>
+	
+			<f:else>
+				<p><f:translate key="none" /></p>
+			</f:else>
+		</f:if>
+
+		<h3>Anonym überlieferte Arientexte:</h3>
+		<f:if condition="{work.anonymusTexts}">
+			<f:then>
+				<f:format.html>{work.anonymusTexts}</f:format.html>
+			</f:then>
+			<f:else>
+				<p><f:translate key="noinformation" /></p>
+			</f:else>
+		</f:if>	
+	</div>
+
+	<div id="sources">
+
+		<h2>Quellen</h2>
+
+		<f:if condition="{sources}">
+
+			<f:then>
+				<f:if condition="{sources}">
+
+					<f:then>
+						<f:groupedFor each="{sources}" as="sourcesByCategory" groupBy="category" groupKey="category">
+
+							<h3><f:translate key="sources.category.I.{category}" /></h3>
+
+							<f:groupedFor each="{sourcesByCategory}" as="sourcesByType" groupBy="type" groupKey="type">
+
+								<div style="margin-left: 1em;">
+								<h4><f:translate key="sources.type.I.{type}" /></h4>
+
+								<f:groupedFor each="{sourcesByType}" as="sourcesBySubtype" groupBy="subtype" groupKey="subtype">
+
+									<div style="margin-left: 1em;">
+									<f:if condition="{subtype} > 0"><h5><f:translate key="sources.subtype.I.{subtype}" /></h5></f:if>
+
+									<f:groupedFor each="{sourcesBySubtype}" as="sourcesByBoundTo" groupBy="boundTo" groupKey="boundTo">
+
+										<div style="margin-left: 1em;">
+										<p><strong><f:translate key="sources.boundTo.I.{boundTo}" /></strong></p>
+
+										<f:for each="{sourcesByBoundTo}" as="source" iteration="iteration">
+
+											<f:if condition="{iteration.isLast}">
+												<f:then>
+													<div style="margin: 0.8em 0 0.8em 1em">
+												</f:then>
+												<f:else>
+													<div style="margin: 0.8em 0 0.8em 1em; border-bottom: 1px dashed #000;">
+												</f:else>
+											</f:if>
+											<p>
+											<f:if condition="{source.partTitle}">
+													<strong>{source.partTitle}, </strong>
+												</f:if>
+											<strong>Signatur:</strong> 
+												<strong><em>{source.signature}</em></strong>
+											</p>
+
+											<p>Fundort: 
+												<f:if condition="{source.archive}">
+													{source.archive.name}
+												</f:if>
+											</p>
+
+											<p>Andere Fundorte: 
+												<f:if condition="{source.otherArchives}">
+													<f:then>
+													<br/>
+													<f:for each="{source.otherArchives}" as="otherArchive">
+														{otherArchive.name} <br/>
+													</f:for>
+													</f:then>
+													<f:else>
+														<f:translate key="noinformation" />
+													</f:else>
+												</f:if>
+											</p>
+
+											<f:if condition="{source.dateRange.dateComment}">
+												<f:then>
+													<p>Datierung: {source.dateRange.dateComment}</p>
+												</f:then>
+												<f:else>
+													<p>Datierung: undatiert</p>
+												</f:else>
+											</f:if>
+
+											<p>Qualität: <f:translate key="sources.quality.I.{source.quality}" /></p>
+
+											<p>Überlieferungsform: <f:translate key="sources.kind.I.{source.kind}" /></p>
+											<f:format.html>{source.description}</f:format.html>
+											<f:if condition="{source.externalReferences}">
+												<f:then>
+													<p>Quellennachweise:</p>
+													<f:format.html>{source.externalReferences}</f:format.html>
+												</f:then>
+												<f:else>
+													<p>Quellennachweise: keine</p>
+												</f:else>
+											</f:if>
+
+											<p>Personen:</p>
+											<f:if condition="{source.relatedPersons}">
+												<f:then>
+												<ul>
+												<f:for each="{source.relatedPersons}" as="relatedPerson" iteration="balla">
+													<li>{relatedPerson.person.name} (<f:translate key="function.I.{relatedPerson.function}" />) {relatedPerson.person.description}</li>
+												</f:for>
+												</ul>
+												</f:then>
+												<f:else>
+													<p>keine</p>
+												</f:else>
+											</f:if>
+
+											</div>
+										</f:for>
+										</div>
+
+									</f:groupedFor>
+									</div>
+
+								</f:groupedFor>
+								</div>
+
+							</f:groupedFor>
+
+						</f:groupedFor>
+					</f:then>
+
+					<f:else><p><f:translate key="none" /></p></f:else>
+
+				</f:if>
+			</f:then>
+
+			<f:else><p><f:translate key="none" /></p></f:else>
+
+		</f:if>
+	</div>
+
+	<div id="literature">
+
+		<h2>Literatur</h2>
+
+		<f:if condition="{work.literature}">
+			<f:then>
+				<f:for each="{work.literature}" as="reference">
+					<p>
+						<f:if condition="{reference.aut}"><strong>{reference.aut}: </strong></f:if>{reference.titel -> f:format.html(parseFuncTSPath : 'lib.tx_catalogueraisonne.literature.output.parseFunc')}<f:if condition="{reference.series}">, in: {reference.series  -> f:format.html(parseFuncTSPath : 'lib.tx_catalogueraisonne.literature.output.parseFunc')}</f:if><f:if condition="{reference.ort}"><f:then>, {reference.ort}<f:if condition="{reference.jahr}"> {reference.jahr}</f:if></f:then><f:else><f:if condition="{reference.jahr}"><f:then>, {reference.jahr}</f:then></f:if></f:else></f:if><f:if condition="{reference.page}">, {reference.page}</f:if>.<f:if condition="{reference.isbn}"> ISBN/ISSN: {reference.isbn}</f:if>
+					</p>
+				</f:for>
+			</f:then>
+			<f:else><p><f:translate key="none" /></p></f:else>
+		</f:if>
+	</div>
+
+	<div id="persons">
+
+		<h2>Personen (Werk)</h2>
+
+		<f:if condition="{work.relatedPersons}">
+			<f:then>
+				<ul>
+				<f:for each="{work.relatedPersons}" as="relatedPerson">
+					<li>
+						{relatedPerson.person.name} (<f:translate key="function.I.{relatedPerson.function}" />)
+					</li>
+				</f:for>
+				</ul>
+			</f:then>
+
+			<f:else>
+				<p><f:translate key="none" /></p>
+			</f:else>
+		</f:if>
+	</div>
+
+</f:section>

@@ -1,0 +1,32 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="2Columns" />
+
+<f:section name="Maincontent">
+	<h1><f:translate key="works.searchresult" /></h1>
+	<div class="box">
+		<p><f:count>{result}</f:count> <f:translate key="works.accordquery"/></p>
+		<p>
+			<f:link.action action="form" pageUid="1642" class="button" section="maincontent"><f:translate key="newsearch" /></f:link.action>
+			<f:link.action action="form" pageUid="1642" arguments="{arguments}" class="button" section="maincontent"><f:translate key="modifySearch" /></f:link.action>
+		</p>
+	</div>
+
+	<f:if condition="{result}">
+		<f:for each="{result}" as="work" iteration="iterator">
+			<div style="margin: 0.8em 0 2.8em 0; border-bottom: 1px dashed #000;">
+
+				<cr:highlight terms="{searchwords}">
+					<h2>{iterator.cycle}) {work.title}</h2>
+					<f:format.html><f:format.crop maxCharacters="222" append="...">{work.genesis}</f:format.crop></f:format.html>
+				</cr:highlight>
+
+				<cr:melt array1="{arguments : arguments}" array2="{work : work}" removeEmptyElements="TRUE" keepZeros="FALSE" />
+				<p><f:link.action action="show" arguments="{arguments}"><f:translate key="literature.details"/></f:link.action></p>
+			</div>
+		</f:for>
+	</f:if>
+</f:section>
+
+<f:section name="Additionalcontent">
+</f:section>

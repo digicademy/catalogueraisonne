@@ -1,0 +1,4 @@
+lib.tx_catalogueraisonne.literature.output.parseFunc {
+	allowTags = em
+	denyTags = *
+}

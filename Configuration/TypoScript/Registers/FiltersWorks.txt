@@ -1,0 +1,84 @@
+lib.tx_catalogueraisonne.registers {
+
+	FiltersWorks {
+		type = CONTENT
+		type {
+			wrap = <ul>|</ul>
+			table = tx_catalogueraisonne_domain_model_works
+			select {
+				pidInList = 1365
+				recursive = 1
+				selectFields = COUNT(DISTINCT tx_catalogueraisonne_domain_model_works.uid) AS count, tx_catalogueraisonne_domain_model_works.type
+				where = tx_catalogueraisonne_domain_model_works.hidden != 1 AND tx_catalogueraisonne_domain_model_works.deleted != 1 AND tx_catalogueraisonne_domain_model_works.type > 0
+				groupBy = tx_catalogueraisonne_domain_model_works.type
+			}
+			renderObj = TEXT
+			renderObj {
+				cObject = TEXT
+				cObject {
+					field = type
+					noTrimWrap = |{LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang.xml:works.type.I.|} ({field:count})|
+				}
+				insertData = 1
+				noTrimWrap = |<li>|</li>|
+				typolink {
+					parameter = 1643
+					additionalParams.dataWrap = &tx_catalogueraisonne_registers[filters][type]={field:type}&tx_catalogueraisonne_registers[action]=show&tx_catalogueraisonne_registers[controller]=Registers
+					useCacheHash = 1
+					addQueryString = 1
+					ATagParams = class="act"
+					ATagParams.if {
+						value.data = GP : tx_catalogueraisonne_registers|filters|type
+						equals.field = type
+					}
+				}
+			}
+		}
+
+		language < .type
+		language {
+			select {
+				selectFields = COUNT(tx_catalogueraisonne_domain_model_works.uid) AS count, tx_catalogueraisonne_domain_model_works.original_language
+				where = tx_catalogueraisonne_domain_model_works.hidden != 1 AND tx_catalogueraisonne_domain_model_works.deleted != 1 AND tx_catalogueraisonne_domain_model_works.original_language > 0
+				groupBy = tx_catalogueraisonne_domain_model_works.original_language
+			}
+			renderObj {
+				cObject {
+					field = original_language
+					noTrimWrap = |{LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang.xml:works.original_language.I.|} ({field:count})|
+				}
+				typolink {
+					additionalParams.dataWrap = &tx_catalogueraisonne_registers[filters][originalLanguage]={field:original_language}&tx_catalogueraisonne_registers[action]=show&tx_catalogueraisonne_registers[controller]=Registers
+					ATagParams.if {
+						value.data = GP : tx_catalogueraisonne_registers|filters|originalLanguage
+						equals.field = original_language
+					}
+				}
+			}
+		}
+
+		authenticity < .type
+		authenticity {
+			select {
+				selectFields = COUNT(tx_catalogueraisonne_domain_model_works.uid) AS count, tx_catalogueraisonne_domain_model_works.authenticity
+				where = tx_catalogueraisonne_domain_model_works.hidden != 1 AND tx_catalogueraisonne_domain_model_works.deleted != 1
+				groupBy = tx_catalogueraisonne_domain_model_works.authenticity
+			}
+			renderObj {
+				cObject {
+					field = authenticity
+					noTrimWrap = |{LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang.xml:works.authenticity.I.|} ({field:count})|
+				}
+				typolink {
+					additionalParams.dataWrap = &tx_catalogueraisonne_registers[filters][authenticity]={field:authenticity}&tx_catalogueraisonne_registers[action]=show&tx_catalogueraisonne_registers[controller]=Registers
+					ATagParams.if {
+						value.data = GP : tx_catalogueraisonne_registers|filters|authenticity
+						equals.field = authenticity
+					}
+				}
+			}
+		}
+
+	}
+
+}

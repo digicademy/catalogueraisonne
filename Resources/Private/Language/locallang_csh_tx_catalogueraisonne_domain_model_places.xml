@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Context Sensitive Help (CSH) for table tx_catalogueraisonne_domain_model_places</description>
+        <type>CSH</type>
+        <csh_table>tx_catalogueraisonne_domain_model_places</csh_table>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+			<label index="name.description">Name of the place</label>
+			<label index="name_variants.description">Namevariants of the place</label>			
+			<label index="coordinates.description">Latitude/Longitude of the place (decimal)</label>
+			<label index="locality.description">A specific locality (like a theater) at the place</label>
+		</languageKey>
+        <languageKey index="de" type="array">
+			<label index="name.description">Ortsname</label>
+			<label index="name_variants.description">Namensvarianten des Ortes</label>			
+			<label index="coordinates.description">Längen-/Breitengrade des Ortes (Dezimalgrade; http://andrew.hedges.name/experiments/convert_lat_long/)</label>
+			<label index="locality.description">Eine spezifische Lokalität (z.B. ein Theater) am Ort</label>
+		</languageKey>		
+    </data>
+</T3locallang>

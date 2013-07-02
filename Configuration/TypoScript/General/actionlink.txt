@@ -1,0 +1,59 @@
+lib.tx_catalogueraisonne.actionlink = COA
+lib.tx_catalogueraisonne.actionlink {
+
+	# tests if submitted additionalParams contain a value and strips them if not
+	10 = LOAD_REGISTER
+	10 {
+		additionalParamsTmp.cObject = TEXT
+		additionalParamsTmp.cObject {
+			field = additionalParams
+			if.isTrue.field = additionalParams
+			split {
+				token = &
+				cObjNum = 1
+				1 = TEXT
+				1 {
+					current = 1
+					wrap = &|
+					if {
+						value = =
+						equals.data = current : 1
+						equals.substring = -1,0
+						negate = 1
+					}
+				}
+			}
+		}
+		additionalParams.cObject = TEXT
+		additionalParams.cObject {
+			data = register : additionalParamsTmp
+		}
+		pageUid.field = pageUid
+		pageUid.override.data = TSFE:id
+		pageUid.override.if.isFalse.field = pageUid
+	}
+
+	20 = TEXT
+	20 {
+		cObject = TEXT
+		cObject.data = field:linkText
+		cObject.outerWrap = {|}
+		cObject.outerWrap.if {
+			value = LLL:
+			equals.cObject = TEXT
+			equals.cObject.data = field:linkText
+			equals.cObject.crop = +4
+		}
+
+		insertData = 1
+
+		# link is XSS proof since it runs through rawurlencode
+		typolink {
+			parameter.dataWrap = {register : pageUid}{field : section}
+			additionalParams.data = register : additionalParams
+			additionalParams.if.isTrue.data = register : additionalParams
+			useCacheHash = 1
+			ATagParams.field = aTagParams
+		}
+	}
+}

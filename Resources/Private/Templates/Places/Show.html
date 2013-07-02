@@ -1,0 +1,66 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="2Columns" />
+
+<f:section name="Maincontent">
+
+	<f:render partial="Registers/BackToList" arguments="{settings : settings}" />
+
+	<h2>{place.locality}</h2>
+
+	<f:if condition="{place.name}">
+		<p><strong><f:translate key="places.name" />: </strong>{place.name}</p>
+	</f:if>
+
+	<f:if condition="{place.nameVariants}">
+		<p><strong><f:translate key="places.namevariants" />: </strong>{place.nameVariants}</p>
+	</f:if>
+
+	<f:if condition="{place.country}">
+		<p><strong><f:translate key="places.country" />: </strong><f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.StaticCountry" data="{country : place.country}" /></p>
+	</f:if>
+
+	<f:if condition="{place.coordinates}">
+		<h3><f:translate key="map" />: </h3>
+		<cr:leaflet objects="{0 : {0 : place}}" coordinatesProperty="coordinates" zoom="12" setView="{place.coordinates}" mapHeight="180" />
+	</f:if>
+
+	<f:if condition="{placeOfPremiere}">
+		<h3><f:translate key="places.placeOfPremiere" />: </h3>
+		<ul>
+		<f:for each="{placeOfPremiere}" as="work">
+			<f:if condition="{work.hidden} == 1">
+				<f:then>
+					<li>{work.title}</li>
+				</f:then>
+				<f:else>
+					<li><f:link.action action="show" controller="Works" arguments="{work : work.uid}" pageUid="1643">{work.title}</f:link.action></li>
+				</f:else>
+			</f:if>
+		</f:for>
+		</ul>
+	</f:if>
+
+	<f:if condition="{worksStaged}">
+		<h3><f:translate key="places.worksStaged" />: </h3>
+		<ul>
+		<f:for each="{worksStaged}" as="work">
+			<f:if condition="{work.hidden} == 1">
+				<f:then>
+					<li>{work.title}</li>
+				</f:then>
+				<f:else>
+					<li><f:link.action action="show" controller="Works" arguments="{work : work.uid}" pageUid="1643">{work.title}</f:link.action></li>
+				</f:else>
+			</f:if>
+		</f:for>
+		</ul>
+	</f:if>
+
+	<f:render partial="Registers/BackToList" arguments="{settings : settings}" />
+
+</f:section>
+
+<f:section name="Additionalcontent">
+	<f:render partial="Registers/Registernav" />
+</f:section>

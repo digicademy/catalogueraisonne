@@ -1,0 +1,32 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:searchPlugin.sheet.general</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:searchPlugin.settings.mode</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:searchPlugin.settings.mode.works</numIndex>
+										<numIndex index="1">Works->form;Works->search;Works->show</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:searchPlugin.settings.mode.sources</numIndex>
+										<numIndex index="1">Sources->form;Sources->search;Sources->show</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

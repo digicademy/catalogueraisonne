@@ -1,0 +1,2 @@
+lib.tx_catalogueraisonne.TYPO3_SITE_URL = TEXT
+lib.tx_catalogueraisonne.TYPO3_SITE_URL.data = getIndpEnv:TYPO3_SITE_URL

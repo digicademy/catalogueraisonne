@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Composers Online Catalogue Raisonné extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+
+		<languageKey index="default" type="array">
+
+			<label index="none">keine</label>
+			<label index="nothingFound">Nothing found!</label>
+			<label index="noinformation">No information</label>
+			<label index="backToList">Back to list</label>
+			<label index="submit">Send</label>
+			<label index="timelimitation">Time delimination:</label>
+			<label index="time_from">From</label>
+			<label index="time_to">To</label>
+			<label index="newsearch">New search</label>
+			<label index="modifySearch">Modify search</label>
+			<label index="map">Reference to geographic</label>
+			<label index="called">Called up at</label>
+
+			<label index="registers.quicklinks">Quicklinks</label>
+			<label index="registers.works">Register of work</label>
+			<label index="registers.places">Register of staging places</label>
+			<label index="registers.persons">Register of persons</label>
+			<label index="registers.archives">Find spot register</label>
+			<label index="registers.filters">Register filter</label>
+			<label index="registers.filters.reset">Cancel all filters</label>
+			<label index="registers.filters.label">After</label>
+			<label index="registers.filters.persons.works">Function with work context</label>
+			<label index="registers.filters.persons.sources">Function in sources context</label>
+			<label index="registers.genesis">Genesis</label>
+
+			<label index="general">General</label>
+			<label index="general.I.0.">General</label>
+			<label index="literature">Literature search</label>
+			<label index="literature.entersearchterm">Search terms</label>
+			<label index="literature.submitlabel">Submit:</label>
+			<label index="literature.search">Search</label>
+			<label index="literature.searchedfor">Search for</label>
+			<label index="literature.therewere">There where</label>
+			<label index="literature.hits">Success</label>
+			<label index="literature.modifysearch">Modify search</label>
+			<label index="literature.newsearch">New search</label>
+			<label index="literature.searchresult">Search result</label>
+			<label index="literature.details">Details</label>
+			<label index="literature.aut">Author(s):</label>
+			<label index="literature.titel">Title:</label>
+			<label index="literature.ar">Working aids:</label>
+			<label index="literature.series">In:</label>
+			<label index="literature.ort">Location:</label>
+			<label index="literature.jahr">Year:</label>
+			<label index="literature.page">Page:</label>
+			<label index="literature.isbn">ISBN or ISSN:</label>
+			<label index="literature.cod">Description:</label>
+			<label index="literature.qn">Reference:</label>
+			<label index="literature.bib">Library:</label>
+			<label index="literature.back2list">Back to search result...</label>
+			<label index="literature.yourresult">Your result:</label>
+
+			<label index="works.naming">Name of the work</label>
+			<label index="works.instrumentation">Instrumentation</label>
+			<label index="works.type">type of work</label>
+			<label index="works.type.I.10">Ballet</label>
+			<label index="works.type.I.20">Church Music</label>
+			<label index="works.type.I.30">Instrumental Music</label>
+			<label index="works.type.I.40">Opera</label>
+			<label index="works.type.I.50">Song</label>	
+			<label index="works.genesis">Genesis</label>
+			<label index="works.history">History</label>
+			<label index="works.commentary">Contemporary Reports</label>
+			<label index="works.dedication">Dedication</label>
+			<label index="works.firststaging">Premiere</label>
+			<label index="works.stagingPlaces">Another Staging Places</label>
+			<label index="works.premiere">Informations about the premiere</label>
+			<label index="works.parts">Numbers</label>
+			<label index="works.authenticity">Authenticity</label>
+			<label index="works.authenticity.I.0">Authentic</label>
+			<label index="works.authenticity.I.1">Doubtful</label>
+			<label index="works.authenticity.I.2">Wrongly attributed</label>
+			<label index="works.authenticity.I.3">Partly authentic</label>
+			<label index="works.authenticity.I.4">Authentic due to attribution</label>
+			<label index="works.original_language">Original language</label>
+			<label index="works.original_language.I.1">Italian</label>
+			<label index="works.original_language.I.2">French</label>
+			<label index="works.original_language.I.3">German</label>
+
+			<label index="works">Digital Register</label>
+			<label index="works.fulltext">Full text</label>
+			<label index="works.searchresult">Search Result</label>
+			<label index="works.quicksearch">Simple Search</label>
+			<label index="works.expertsearch">Extended Search</label>
+			<label index="works.entersearchterm">Searching Terms</label>
+			<label index="works.submitlabel">Submit:</label>
+			<label index="works.search">Search</label>
+			<label index="works.worksfilter">Filter of works</label>
+			<label index="works.sourcesfilter">Filter of Sources</label>
+			<label index="works.general">General</label>
+			<label index="works.persons">Persons</label>
+			<label index="works.parts">Parts</label>
+			<label index="works.borrowings">Adoptions</label>
+			<label index="works.sources">Sources</label>
+			<label index="works.literature">Literature</label>
+			<label index="works.accord_query">Works accord to your query</label>
+			<label index="works.GGA_volume">GGA-Volume</label>
+
+			<label index="parts.act">Act</label>
+			<label index="parts.act.I.1">I</label>
+			<label index="parts.act.I.2">II</label>
+			<label index="parts.act.I.3">III</label>
+			<label index="parts.act.I.4">IV</label>
+			<label index="parts.act.I.5">V</label>
+			<label index="parts.scene">Scene</label>
+			<label index="parts.title">Title</label>
+			<label index="parts.featured_in">Assumed in</label>
+			<label index="parts.borrowed_from">Assumed from</label>
+			<label index="parts.externalSource">Borrowings from external works</label>
+			<label index="parts.externalSource.I.0">Borrowings external works</label>
+			<label index="parts.incipits">Incipits</label>
+			<label index="parts.sources">Sources</label>
+			<label index="parts.last_scene">Last scene</label>
+
+			<label index="sources.signature">Signature</label>
+			<label index="sources.boundTo">Related work:</label>
+			<label index="sources.daterange">Daterange</label>
+			<label index="sources.description">Description</label>
+			<label index="sources.archive">Fundort</label>
+			<label index="sources.otherArchives">Fundorte</label>
+			<label index="sources.category">Kategorie</label>
+			<label index="sources.category.I.1">Musik</label>
+			<label index="sources.category.I.2">Text</label>
+			<label index="sources.type">Typ</label>
+			<label index="sources.type.I.1">Handschriften</label>
+			<label index="sources.type.I.2">Drucke</label>
+			<label index="sources.subtype">Untertyp</label>
+			<label index="sources.subtype.I.10">Autograph</label>
+			<label index="sources.subtype.I.20">Autograph und Abschrift</label>
+			<label index="sources.subtype.I.30">Abschrift</label>
+			<label index="sources.subtype.I.40">Libretto</label>
+			<label index="sources.subtype.I.50">Textvorlage</label>
+			<label index="sources.boundTo.I.1">Das ganze Werk</label>
+			<label index="sources.boundTo.I.2">Einzelne Teile</label>
+			<label index="sources.quality">Qualität</label>
+			<label index="sources.quality.I.1">Originalgestalt</label>
+			<label index="sources.quality.I.2">Parodie</label>
+			<label index="sources.quality.I.3">Bearbeitung</label>
+			<label index="sources.quality.I.4">Übersetzung</label>
+			<label index="sources.kind">Überlieferungsform</label>
+			<label index="sources.kind.I.10">Partitur</label>
+			<label index="sources.kind.I.20">Stimmen</label>
+			<label index="sources.kind.I.30">Klavierauszug</label>
+			<label index="sources.kind.I.40">Uraufführungslibretto</label>
+			<label index="sources.kind.I.50">Weitere Textbücher</label>
+			<label index="sources.kind.I.60">Almanach</label>
+			<label index="sources.kind.I.70">Periodikum</label>
+			<label index="sources.kind.I.80">Anthologie</label>
+			<label index="sources.kind.I.90">Particell</label>
+			<label index="sources.search">Suche Quellen</label>
+			<label index="sources.work">Zu Werk(en)</label>
+			<label index="sources.external">Quellennachweise</label>
+
+			<label index="function">Funktion</label>
+			<label index="function.I.10">Tänzer</label>
+			<label index="function.I.40">Instrumentalist</label>
+			<label index="function.I.50">Textdichter</label>
+			<label index="function.I.70">Sänger</label>
+			<label index="function.I.80">Ausstatter</label>
+			<label index="function.I.110">Verleger</label>
+			<label index="function.I.120">Schreiber</label>	
+			<label index="function.I.130">Vorbesitzer</label>
+			<label index="function.I.140">Graveur</label>
+			<label index="function.I.210">Bearbeiter</label>
+			<label index="function.I.220">Komponist</label>
+			<label index="function.I.230">Choreograph</label>
+			<label index="function.I.240">Widmungsträger</label>
+			<label index="function.I.250">Übersetzer</label>
+			<label index="function.I.260">unbekannt</label>
+
+			<label index="persons.name">Name</label>
+			<label index="persons.cv">Biographische Angaben</label>
+			<label index="persons.titles">Titel</label>
+			<label index="persons.namevariants">Namensvarianten</label>
+			<label index="persons.relatedworks">Zugehörige Werke</label>
+			<label index="persons.relatedsources">Zugehörige Quellen</label>
+
+			<label index="places.name">Stadt</label>
+			<label index="places.locality">Ort</label>
+			<label index="places.country">Land</label>
+			<label index="places.namevariants">Namensvarianten</label>
+			<label index="places.placeOfPremiere">Uraufführungsort</label>
+			<label index="places.worksStaged">Aufführungsort</label>
+
+			<label index="archives.name"></label>
+			<label index="archives.description"></label>
+			<label index="archives.place">Stadt</label>
+			<label index="archives.country">Land</label>
+			<label index="archives.relatedWorks">Zu folgenden Werken liegen Quellen vor</label>
+
+			<label index="citation">Zitierhinweis</label>
+
+		</languageKey>
+
+		<languageKey index="de" type="array">
+
+			<label index="none">keine</label>
+			<label index="nothingFound">Nichts gefunden!</label>
+			<label index="noinformation">keine Angaben</label>
+			<label index="backToList">Zurück zur Liste</label>
+			<label index="submit">Abschicken</label>
+			<label index="timelimitation">Zeitliche Eingrenzung:</label>
+			<label index="time_from">von</label>
+			<label index="time_to">bis</label>
+			<label index="newsearch">Neue Suche</label>
+			<label index="modifySearch">Suche modifizieren</label>
+			<label index="map">Geographischer Bezug</label>
+			<label index="called">Abgerufen am</label>
+
+			<label index="registers.quicklinks">Schnellzugriff</label>
+			<label index="registers.works">Werkregister</label>
+			<label index="registers.places">Spielorteregister</label>
+			<label index="registers.persons">Personenregister</label>
+			<label index="registers.archives">Fundorteregister</label>
+			<label index="registers.filters">Registerfilter</label>
+			<label index="registers.filters.reset">Alle Filter aufheben</label>
+			<label index="registers.filters.label">Nach</label>
+			<label index="registers.filters.persons.works">Funktionen im Werkkontext</label>
+			<label index="registers.filters.persons.sources">Funktionen im Quellenkontext</label>
+			<label index="registers.genesis">Genese</label>
+
+			<label index="general">Allgemeines</label>
+			<label index="general.I.0.">Allgemein</label>
+			<label index="literature">Literatursuche</label>
+			<label index="literature.entersearchterm">Suchbegriffe</label>
+			<label index="literature.submitlabel">Abschicken:</label>
+			<label index="literature.search">Suche</label>
+			<label index="literature.searchedfor">Suche nach</label>
+			<label index="literature.therewere">Es gab</label>
+			<label index="literature.hits">Treffer</label>
+			<label index="literature.modifysearch">Suche modifizieren</label>
+			<label index="literature.newsearch">Neue Suche</label>
+			<label index="literature.searchresult">Suchergebnis</label>
+			<label index="literature.details">Details</label>
+			<label index="literature.aut">Autor(en):</label>
+			<label index="literature.titel">Titel:</label>
+			<label index="literature.ar">Arbeitsmaterial:</label>
+			<label index="literature.series">In:</label>
+			<label index="literature.ort">Ort:</label>
+			<label index="literature.jahr">Jahr:</label>
+			<label index="literature.page">Seite:</label>
+			<label index="literature.isbn">ISBN oder ISSN:</label>
+			<label index="literature.cod">Beschreibung:</label>
+			<label index="literature.qn">Quellennachweis:</label>
+			<label index="literature.bib">Bibliothek:</label>
+			<label index="literature.back2list">Zurück zum Suchergebnis...</label>
+			<label index="literature.yourresult">Ihr Treffer:</label>
+
+			<label index="works.naming">Werkbezeichnung</label>
+			<label index="works.instrumentation">Besetzung</label>
+			<label index="works.type">Werktyp</label>
+			<label index="works.type.I.10">Ballett</label>
+			<label index="works.type.I.20">Kirchenmusik</label>
+			<label index="works.type.I.30">Instrumentalmusik</label>
+			<label index="works.type.I.40">Oper</label>
+			<label index="works.type.I.50">Lied</label>	
+			<label index="works.genesis">Entstehung</label>
+			<label index="works.history">Werkgeschichte</label>
+			<label index="works.commentary">Zeitgenössische Berichte</label>
+			<label index="works.dedication">Widmung</label>
+			<label index="works.firststaging">Uraufführung</label>
+			<label index="works.stagingPlaces">Weitere Aufführungsorte</label>
+			<label index="works.premiere">Informationen zur Uraufführung</label>
+			<label index="works.parts">Nummern</label>
+			<label index="works.authenticity">Authentizität</label>
+			<label index="works.authenticity.I.0">authentisch</label>
+			<label index="works.authenticity.I.1">zweifelhaft</label>
+			<label index="works.authenticity.I.2">fälschlich zugeordnet</label>
+			<label index="works.authenticity.I.3">teilweise authentisch</label>
+			<label index="works.authenticity.I.4">authentisch aufgrund der Übernahme</label>
+			<label index="works.original_language">Originalsprache</label>
+			<label index="works.original_language.I.1">Italienisch</label>
+			<label index="works.original_language.I.2">Französisch</label>
+			<label index="works.original_language.I.3">Deutsch</label>
+
+			<label index="works">Digitales Werkverzeichnis</label>
+			<label index="works.fulltext">Volltext</label>
+			<label index="works.searchresult">Suchergebnis</label>
+			<label index="works.quicksearch">Einfache Suche</label>
+			<label index="works.expertsearch">Erweiterte Suche</label>
+			<label index="works.entersearchterm">Suchbegriffe</label>
+			<label index="works.submitlabel">Abschicken:</label>
+			<label index="works.search">Suche</label>
+			<label index="works.worksfilter">Werkfilter</label>
+			<label index="works.sourcesfilter">Quellenfilter</label>
+			<label index="works.general">Allgemeines</label>
+			<label index="works.persons">Personen</label>
+			<label index="works.parts">Werkteile</label>
+			<label index="works.borrowings">Übernahmen</label>
+			<label index="works.sources">Quellen</label>
+			<label index="works.literature">Literatur</label>
+			<label index="works.accordquery">Werke entsprechen ihrer Suchanfrage</label>
+			<label index="works.GGA_volume">GGA-Band</label>
+
+			<label index="parts.act">Akt</label>
+			<label index="parts.act.I.1">I</label>
+			<label index="parts.act.I.2">II</label>
+			<label index="parts.act.I.3">III</label>
+			<label index="parts.act.I.4">IV</label>
+			<label index="parts.act.I.5">V</label>
+			<label index="parts.scene">Szene</label>
+			<label index="parts.title">Titel</label>
+			<label index="parts.featured_in">Übernommen in</label>
+			<label index="parts.borrowed_from">Übernommen aus</label>
+			<label index="parts.externalSource">Entlehnungen aus fremden Werken</label>
+			<label index="parts.externalSource.I.0">Entlehnungen fremder Werke</label>
+			<label index="parts.incipits">Incipits</label>
+			<label index="parts.sources">Quellen</label>
+			<label index="parts.last_scene">letzte Szene</label>
+
+			<label index="sources.signature">Signatur</label>
+			<label index="sources.boundTo">Zugehöriges Werk:</label>
+			<label index="sources.daterange">Datierung</label>
+			<label index="sources.description">Beschreibung</label>
+			<label index="sources.archive">Fundort</label>
+			<label index="sources.otherArchives">Fundorte</label>
+			<label index="sources.category">Kategorie</label>
+			<label index="sources.category.I.1">Musik</label>
+			<label index="sources.category.I.2">Text</label>
+			<label index="sources.type">Typ</label>
+			<label index="sources.type.I.1">Handschriften</label>
+			<label index="sources.type.I.2">Drucke</label>
+			<label index="sources.subtype">Untertyp</label>
+			<label index="sources.subtype.I.10">Autograph</label>
+			<label index="sources.subtype.I.20">Autograph und Abschrift</label>
+			<label index="sources.subtype.I.30">Abschrift</label>
+			<label index="sources.subtype.I.40">Libretto</label>
+			<label index="sources.subtype.I.50">Textvorlage</label>
+			<label index="sources.boundTo.I.1">Das ganze Werk</label>
+			<label index="sources.boundTo.I.2">Einzelne Teile</label>
+			<label index="sources.quality">Qualität</label>
+			<label index="sources.quality.I.1">Originalgestalt</label>
+			<label index="sources.quality.I.2">Parodie</label>
+			<label index="sources.quality.I.3">Bearbeitung</label>
+			<label index="sources.quality.I.4">Übersetzung</label>
+			<label index="sources.kind">Überlieferungsform</label>
+			<label index="sources.kind.I.10">Partitur</label>
+			<label index="sources.kind.I.20">Stimmen</label>
+			<label index="sources.kind.I.30">Klavierauszug</label>
+			<label index="sources.kind.I.40">Uraufführungslibretto</label>
+			<label index="sources.kind.I.50">Weitere Textbücher</label>
+			<label index="sources.kind.I.60">Almanach</label>
+			<label index="sources.kind.I.70">Periodikum</label>
+			<label index="sources.kind.I.80">Anthologie</label>
+			<label index="sources.kind.I.90">Particell</label>
+			<label index="sources.search">Suche Quellen</label>
+			<label index="sources.work">Zu Werk(en)</label>
+			<label index="sources.external">Quellennachweise</label>
+
+			<label index="function">Funktion</label>
+			<label index="function.I.10">Tänzer</label>
+			<label index="function.I.40">Instrumentalist</label>
+			<label index="function.I.50">Textdichter</label>
+			<label index="function.I.70">Sänger</label>
+			<label index="function.I.80">Ausstatter</label>
+			<label index="function.I.110">Verleger</label>
+			<label index="function.I.120">Schreiber</label>	
+			<label index="function.I.130">Vorbesitzer</label>
+			<label index="function.I.140">Graveur</label>
+			<label index="function.I.210">Bearbeiter</label>
+			<label index="function.I.220">Komponist</label>
+			<label index="function.I.230">Choreograph</label>
+			<label index="function.I.240">Widmungsträger</label>
+			<label index="function.I.250">Übersetzer</label>
+			<label index="function.I.260">unbekannt</label>
+
+			<label index="persons.name">Name</label>
+			<label index="persons.cv">Biographische Angaben</label>
+			<label index="persons.titles">Titel</label>
+			<label index="persons.namevariants">Namensvarianten</label>
+			<label index="persons.relatedworks">Zugehörige Werke</label>
+			<label index="persons.relatedsources">Zugehörige Quellen</label>
+
+			<label index="places.name">Stadt</label>
+			<label index="places.locality">Ort</label>
+			<label index="places.country">Land</label>
+			<label index="places.namevariants">Namensvarianten</label>
+			<label index="places.placeOfPremiere">Uraufführungsort</label>
+			<label index="places.worksStaged">Aufführungsort</label>
+
+			<label index="archives.name"></label>
+			<label index="archives.description"></label>
+			<label index="archives.place">Stadt</label>
+			<label index="archives.country">Land</label>
+			<label index="archives.relatedWorks">Zu folgenden Werken liegen Quellen vor</label>
+
+			<label index="citation">Zitierhinweis</label>
+
+		</languageKey>
+
+	</data>
+</T3locallang>

@@ -1,0 +1,26 @@
+lib.tx_catalogueraisonne.resultNumbers = COA
+lib.tx_catalogueraisonne.resultNumbers {
+
+	5 = LOAD_REGISTER
+	5 {
+		currentNumber {
+			cObject = TEXT
+			cObject {
+				cObject = TEXT
+				cObject {
+					dataWrap = (({GP : tx_catalogueraisonne_literature|@widget_0|currentPage}|-1)*10)
+					dataWrap.override = (0*10)
+					dataWrap.override.if.isFalse.data = GP : tx_catalogueraisonne_literature|@widget_0|currentPage
+				}
+				dataWrap = |+{field:counter}
+				prioriCalc = intval
+			}
+			prioriCalc = intval
+		}
+	}
+
+	10 = TEXT
+	10 {
+		data = register:currentNumber
+	}
+}

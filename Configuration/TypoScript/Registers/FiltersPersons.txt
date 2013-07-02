@@ -1,0 +1,202 @@
+lib.tx_catalogueraisonne.registers {
+
+	FiltersPersons {
+
+		functionWorks = COA
+		functionWorks {
+
+			10 = CONTENT
+			10 {
+				table = tx_catalogueraisonne_domain_model_persons
+
+				select {
+					pidInList = 1366
+					selectFields = COUNT(DISTINCT tx_catalogueraisonne_domain_model_persons.uid) AS count, tx_catalogueraisonne_domain_model_workspersonsrelations.function
+					leftjoin = tx_catalogueraisonne_domain_model_workspersonsrelations ON tx_catalogueraisonne_domain_model_persons.uid = tx_catalogueraisonne_domain_model_workspersonsrelations.person
+					where = tx_catalogueraisonne_domain_model_workspersonsrelations.function > 0 AND tx_catalogueraisonne_domain_model_workspersonsrelations.deleted = 0 AND tx_catalogueraisonne_domain_model_workspersonsrelations.hidden = 0
+					groupBy = tx_catalogueraisonne_domain_model_workspersonsrelations.function
+				}
+
+				# alphabetically ordered register 80,210,230,40,220,70,10,50,250,260,240
+				renderObj = CASE
+				renderObj {
+
+					key.field = function
+
+					80 = LOAD_REGISTER
+					80.ausstatter {
+						cObject = TEXT
+						cObject {
+							noTrimWrap = |<li>|</li>|
+							cObject = TEXT
+							cObject {
+								field = function
+								noTrimWrap = |{LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang.xml:function.I.|} ({field:count})|
+							}
+							insertData = 1
+							typolink {
+								parameter = 1645
+								additionalParams.dataWrap = &tx_catalogueraisonne_registers[filters][functionWorks]={field:function}&tx_catalogueraisonne_registers[action]=show&tx_catalogueraisonne_registers[controller]=Registers
+								useCacheHash = 1
+								ATagParams = class=act
+								ATagParams.if {
+									value.data = GP : tx_catalogueraisonne_registers|filters|functionWorks
+									equals.field = function
+								}
+							}
+						}
+					}
+
+					210 = LOAD_REGISTER
+					210.bearbeiter < .80.ausstatter
+
+					230 = LOAD_REGISTER
+					230.choreograph < .80.ausstatter
+
+					40 = LOAD_REGISTER
+					40.instrumentalist < .80.ausstatter
+
+					220 = LOAD_REGISTER
+					220.komponist < .80.ausstatter
+
+					70 = LOAD_REGISTER
+					70.saenger < .80.ausstatter
+
+					10 = LOAD_REGISTER
+					10.taenzer < .80.ausstatter
+
+					50 = LOAD_REGISTER
+					50.textdichter < .80.ausstatter
+
+					250 = LOAD_REGISTER
+					250.uebersetzer < .80.ausstatter
+
+					260 = LOAD_REGISTER
+					260.unbekannt < .80.ausstatter
+
+					240 = LOAD_REGISTER
+					240.widmungstraeger < .80.ausstatter
+				}
+			}
+
+			20 = TEXT
+			20.dataWrap (
+				<ul>
+					{register:ausstatter}
+					{register:bearbeiter}
+					{register:choreograph}
+					{register:instrumentalist}
+					{register:komponist}
+					{register:saenger}
+					{register:taenzer}
+					{register:textdichter}
+					{register:uebersetzer}
+					{register:unbekannt}
+					{register:widmungstraeger}
+				</ul>
+			)
+
+		}
+
+		functionSources = COA
+		functionSources {
+
+			10 = CONTENT
+			10 {
+				table = tx_catalogueraisonne_domain_model_persons
+
+				select {
+					pidInList = 1366
+					selectFields = COUNT(DISTINCT tx_catalogueraisonne_domain_model_persons.uid) AS count, tx_catalogueraisonne_domain_model_sourcespersonsrelations.function
+					leftjoin = tx_catalogueraisonne_domain_model_sourcespersonsrelations ON tx_catalogueraisonne_domain_model_persons.uid = tx_catalogueraisonne_domain_model_sourcespersonsrelations.person
+					where = tx_catalogueraisonne_domain_model_sourcespersonsrelations.function > 0 AND tx_catalogueraisonne_domain_model_sourcespersonsrelations.deleted = 0 AND tx_catalogueraisonne_domain_model_sourcespersonsrelations.hidden = 0
+					groupBy = tx_catalogueraisonne_domain_model_sourcespersonsrelations.function
+				}
+
+				# alphabetically ordered register 210,230,140,220,70,120,10,250,260,110,130,240
+				renderObj = CASE
+				renderObj {
+
+					key.field = function
+
+					210 = LOAD_REGISTER
+					210.bearbeiter {
+						cObject = TEXT
+						cObject {
+							noTrimWrap = |<li>|</li>|
+							cObject = TEXT
+							cObject {
+								field = function
+								noTrimWrap = |{LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang.xml:function.I.|} ({field:count})|
+							}
+							insertData = 1
+							typolink {
+								parameter = 1645
+								additionalParams.dataWrap = &tx_catalogueraisonne_registers[filters][functionSources]={field:function}&tx_catalogueraisonne_registers[action]=show&tx_catalogueraisonne_registers[controller]=Registers
+								useCacheHash = 1
+								ATagParams = class=act
+								ATagParams.if {
+									value.data = GP : tx_catalogueraisonne_registers|filters|functionSources
+									equals.field = function
+								}
+							}
+						}
+					}
+
+					230 = LOAD_REGISTER
+					230.choreograph < .210.bearbeiter
+
+					140 = LOAD_REGISTER
+					140.graveur < .210.bearbeiter
+
+					220 = LOAD_REGISTER
+					220.komponist < .210.bearbeiter
+
+					70 = LOAD_REGISTER
+					70.saenger < .210.bearbeiter
+
+					120 = LOAD_REGISTER
+					120.schreiber < .210.bearbeiter
+
+					10 = LOAD_REGISTER
+					10.taenzer < .210.bearbeiter
+
+					250 = LOAD_REGISTER
+					250.uebersetzer < .210.bearbeiter
+
+					260 = LOAD_REGISTER
+					260.unbekannt < .210.bearbeiter
+
+					110 = LOAD_REGISTER
+					110.verleger < .210.bearbeiter
+
+					130 = LOAD_REGISTER
+					130.vorbesitzer < .210.bearbeiter
+
+					240 = LOAD_REGISTER
+					240.widmungstraeger < .210.bearbeiter
+				}
+			}
+
+			20 = TEXT
+			20.dataWrap (
+				<ul>
+					{register:bearbeiter}
+					{register:choreograph}
+					{register:graveur}
+					{register:komponist}
+					{register:saenger}
+					{register:schreiber}
+					{register:taenzer}
+					{register:uebersetzer}
+					{register:unbekannt}
+					{register:verleger}
+					{register:vorbesitzer}
+					{register:widmungstraeger}
+				</ul>
+			)
+
+		}
+	}
+
+}

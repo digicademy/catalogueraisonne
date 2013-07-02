@@ -1,0 +1,10 @@
+<f:comment>
+{settings.mode} will only exist in the context of a registers plugin, so we can use it here to determine if the link should be inserted or not
+</f:comment>
+<f:if condition="{settings.mode}">
+	<p>
+		<f:link.action action="show" class="button" controller="Registers" section="#maincontent">
+			<f:translate key="backToList" />
+		</f:link.action>
+	</p>
+</f:if>

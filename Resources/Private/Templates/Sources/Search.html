@@ -1,0 +1,56 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="2Columns" />
+
+<f:section name="Maincontent">
+
+	<h1><f:translate key="works.searchresult" /></h1>
+	<div class="box">
+		<p><f:count>{result}</f:count> Werk(e) mit entsprechenden Quellen.</p>
+		<p>
+			<f:link.action action="form" pageUid="1655" class="button" section="maincontent"><f:translate key="newsearch" /></f:link.action>
+			<f:link.action action="form" pageUid="1655" arguments="{arguments}" class="button" section="maincontent"><f:translate key="modifySearch" /></f:link.action>
+		</p>
+	</div>
+	<f:if condition="{result}">
+		<f:for each="{result}" as="resultGroup" iteration="number">
+			<div id="w{number.cycle}">
+			<f:for each="{resultGroup.sources}" as="source" iteration="iterator">
+				<f:if condition="{iterator.isFirst}">
+					<h2>{resultGroup.work}</h2>
+				</f:if>
+
+				<div id="s{source.uid}" class="source" style="margin: 0.8em 0 2.8em 0; border-bottom: 1px dashed #000;">
+				<h3>{source.signature}</h3>
+
+				<f:if condition="{source.archive}">
+					<p><strong>Fundort:</strong> <f:link.action action="show" controller="Archives" pluginName="Registers" arguments="{archive : source.archive.uid}" pageUid="1646">{source.archive.name}</f:link.action></p>
+				</f:if>
+
+				<f:if condition="{source.description}">
+					<f:format.html>{source.description}</f:format.html>
+				</f:if>
+
+				<cr:melt array1="{arguments : arguments}" array2="{source : source}" removeEmptyElements="TRUE" keepZeros="FALSE" />
+				<p><f:link.action action="show" arguments="{arguments}">Details</f:link.action></p>
+				</div>
+			</f:for>
+			</div>
+		</f:for>
+	</f:if>
+</f:section>
+
+<f:section name="Additionalcontent">
+	<f:if condition="{result}">
+	<h3>Schnellzugriff</h3>
+	<ul>
+		<f:for each="{result}" as="works" iteration="number">
+			<li>
+			<f:link.action action="search" pageUid="1656" arguments="{arguments}" section="w{number.cycle}">
+				{works.work}
+			</f:link.action>
+			</li>
+		</f:for>
+	</ul>
+	</f:if>
+</f:section>

@@ -1,0 +1,62 @@
+plugin.tx_catalogueraisonne {
+	persistence {
+		storagePid =
+	}
+
+	settings {
+		literature {
+			listPid = 
+		}
+	}
+
+	view {
+		widget {
+			Tx_Paginator_ViewHelpers_Widget_ListViewHelper.templateRootPath = EXT:catalogueraisonne/Resources/Private/Paginator/
+		}
+	}
+}
+
+page.includeCSS {
+	file99 = http://cdn.leafletjs.com/leaflet-0.5/leaflet.css
+	file99.external = 1
+	file99.disableCompression = 1
+	file99.if {
+		value = 1643,1644,1646,1647
+		isInList.data = TSFE:id
+	}
+
+	file100 = http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css
+	file100.external = 1
+	file100.disableCompression = 1
+	file100.wrap = <!--[if lte IE 8]>|<![endif]-->
+	file100.if < .file99.if
+}
+
+page.includeJS {
+	file99 = http://cdn.leafletjs.com/leaflet-0.5/leaflet.js
+	file99.external = 1
+	file99.if {
+		value = 1643,1644,1646,1647
+		isInList.data = TSFE:id
+	}
+}
+
+page.includeJSFooter {
+	file10 = EXT:catalogueraisonne/Resources/Public/JS/FiltersAlphabet.js
+	file10.if {
+		value = 1643,1644,1645,1646
+		isInList.data = TSFE:id
+		isFalse.data = GP : tx_catalogueraisonne_registers | work
+	}
+	file20 = EXT:catalogueraisonne/Resources/Public/JS/WorksShow.js
+	file20.if {
+		value.dataWrap = 1647-Works-show
+		equals.dataWrap = {TSFE:id}-{GP : tx_catalogueraisonne_search | controller}-{GP : tx_catalogueraisonne_search | action}
+	}
+	file30 = EXT:catalogueraisonne/Resources/Public/JS/WorksShow.js
+	file30.if {
+		value.dataWrap = 1643-Works
+		equals.dataWrap = {TSFE:id}-{GP : tx_catalogueraisonne_registers | controller}
+
+	}
+}

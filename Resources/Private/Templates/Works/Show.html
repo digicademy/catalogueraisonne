@@ -1,0 +1,641 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="2Columns" />
+
+<f:section name="Maincontent">
+
+	<f:if condition="{arguments -> f:count()} > 3">
+		<f:then>
+			<p>
+				<f:link.action action="search" arguments="{arguments}" class="button" section="maincontent">
+					<f:translate key="backToList" />
+				</f:link.action>
+			</p>
+		</f:then>
+		<f:else>
+			<f:render partial="Registers/BackToList" arguments="{settings : settings}" />
+		</f:else>
+	</f:if>
+
+	<f:if condition="{work.identifier}">
+		<p><strong><f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.formatGWVNumber" data="{identifier : work.identifier}" /></strong></p>
+	</f:if>
+
+	<h1 class="csc-firstHeader">{work.title}</h1>
+
+	<cr:highlight terms="{searchwords}">
+
+	<!-- TAB 1: GENERAL -->
+	<div id="general">
+
+		<h2><f:translate key="general" /></h2>
+
+		<f:if condition="{work.gga}">
+			 <p><strong><f:translate key="works.GGA_volume"/>:</strong> {work.gga}</p>
+		</f:if>
+
+		<f:if condition="{work.wotquenneNumber}">
+			<p><strong>Wotquenne-Nummer:</strong> {work.wotquenneNumber}</p>
+		</f:if>
+
+		<p><strong><f:translate key="works.type" />:</strong> <f:translate key="works.type.I.{work.type}" /></p>
+
+		<f:if condition="{work.naming}">
+			<p><strong><f:translate key="works.naming" />:</strong> {work.naming}</p>
+		</f:if>
+
+		<f:if condition="{work.placeOfPremiere}">
+			<p><strong><f:translate key="works.firststaging" />:</strong> <f:if condition="{work.placeOfPremiere}">{work.dateRange.dateComment}</f:if><f:if condition="{work.placeOfPremiere.name}">, {work.placeOfPremiere.name}</f:if><f:if condition="{work.placeOfPremiere.locality}">, {work.placeOfPremiere.locality}</f:if></p>
+		</f:if>
+
+		<f:if condition="{work.instrumentation}">
+			<p><strong><f:translate key="works.instrumentation" />:</strong> {work.instrumentation}</p>
+		</f:if>
+
+		<f:if condition="{work.premiere}">
+			<p><strong><f:translate key="works.premiere" />:</strong> <f:format.html>{work.premiere}</f:format.html></p>
+		</f:if>
+
+		<f:if condition="{work.dedication}">
+			<p><strong><f:translate key="works.dedication" />:</strong> {work.dedication}</p>
+		</f:if>
+
+		<p><strong><f:translate key="works.original_language" />:</strong> <f:translate key="works.original_language.I.{work.originalLanguage}" /></p>
+
+		<p><strong><f:translate key="works.authenticity" />:</strong> <f:translate key="works.authenticity.I.{work.authenticity}" /></p>
+
+	</div>
+
+	<!-- TAB 2: PERSONS -->	
+	<div id="persons">
+		<h2><f:translate key="works.persons" /></h2>
+
+		<f:if condition="{relatedPersons}">
+
+			<ul>
+			<f:for each="{relatedPersons}" as="relations" iteration="iteration" key="function">
+
+				<!-- Textdichter 50 -->
+				<f:if condition="{function} == 50">
+					<li class="label"><strong><f:translate key="function.I.50" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.50}" as="persons50" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons50}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+								{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Bearbeiter 210 -->
+				<f:if condition="{function} == 210">
+					<li class="label"><strong><f:translate key="function.I.210" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.210}" as="persons210" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons210}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+								{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Übersetzer 250 -->
+				<f:if condition="{function} == 250">
+					<li class="label"><strong><f:translate key="function.I.250" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.250}" as="persons250" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons250}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+								{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Widmungsträger 240 -->
+				<f:if condition="{function} == 240">
+					<li class="label"><strong><f:translate key="function.I.240" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.240}" as="persons240" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons240}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+								{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Sänger 70 -->
+				<f:if condition="{function} == 70">
+					<li class="label"><strong><f:translate key="function.I.70" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.70}" as="persons70" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons70}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+									{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Choreograph 230 -->
+				<f:if condition="{function} == 230">
+					<li class="label"><strong><f:translate key="function.I.230" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.230}" as="persons230" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons230}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+									{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Tänzer 10 -->
+				<f:if condition="{function} == 10">
+					<li class="label"><strong><f:translate key="function.I.10" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.10}" as="persons10" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons10}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+									{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Instrumentalist 40 -->
+				<f:if condition="{function} == 40">
+					<li class="label"><strong><f:translate key="function.I.40" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.40}" as="persons40" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons40}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+									{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Ausstatter 80 -->
+				<f:if condition="{function} == 80">
+					<li class="label"><strong><f:translate key="function.I.80" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.80}" as="persons80" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons80}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+									{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- Komponist 220 -->
+				<f:if condition="{function} == 220">
+					<li class="label"><strong><f:translate key="function.I.220" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.70}" as="persons70" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons70}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+									{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+				<!-- unbekannt 260 -->
+				<f:if condition="{function} == 260">
+					<li class="label"><strong><f:translate key="function.I.260" />:</strong></li>
+					<ul>
+						<cr:sort subject="{relatedPersons.260}" as="persons260" order="ASC" sortFlags="SORT_REGULAR">
+						<f:for each="{persons260}" as="person">
+							<li>
+								<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : person.0.uid}" pageUid="1645">
+									{person.0.name}
+								</f:link.action>
+								<f:if condition="{person.1}">
+									({person.1})
+								</f:if>
+							</li>
+						</f:for>
+						</cr:sort>
+					</ul>
+				</f:if>
+
+			</f:for>
+			</ul>
+		</f:if>
+
+	</div>
+
+	<!-- TAB 3:  Genese-->
+
+	<div id="genesis">
+		<h2><f:translate key="registers.genesis"/></h2>
+
+		<f:if condition="{work.genesis}">
+			<p><strong><f:translate key="works.genesis" />:</strong></p>
+			<f:format.html>{work.genesis}</f:format.html>
+		</f:if>
+		
+
+		<f:if condition="{work.history}">
+			<p><strong><f:translate key="works.history" />:</strong></p>
+			<f:format.html>{work.history}</f:format.html>
+		</f:if>
+
+		<f:if condition="{work.commentary}">
+			<p><strong><f:translate key="works.commentary" />:</strong></p>
+			<f:format.html>{work.commentary}</f:format.html>
+		</f:if>
+
+		<f:if condition="{work.placeOfPremiere}">
+			<p><strong><f:translate key="works.firststaging" />:</strong></p>
+			<ul>
+				<li>{work.placeOfPremiere.name}</li>
+			</ul>
+		</f:if>
+
+		<f:if condition="{work.stagingPlaces}">
+			<f:then>
+				<p><strong><f:translate key="works.stagingPlaces" />:</strong></p>
+				<ul>
+				<f:for each="{work.stagingPlaces}" as="stagingPlace">
+					<li>{stagingPlace.name}</li>
+				</f:for>
+				</ul>
+				<cr:leaflet objects="{0 : {0 : work.placeOfPremiere}, 1 : work.stagingPlaces}" coordinatesProperty="coordinates" zoom="4" setView="51.0,13.0" mapHeight="300" />
+			</f:then>
+			<f:else>
+				<f:if condition="{work.placeOfPremiere}">
+					<cr:leaflet objects="{0 : {0 : work.placeOfPremiere}}" coordinatesProperty="coordinates" zoom="4" setView="51.0,13.0" mapHeight="300" />
+				</f:if>
+			</f:else>
+		</f:if>
+	</div>
+
+	<!-- TAB 4: PARTS -->
+
+	<div id="parts">
+		<h2><f:translate key="works.parts" /></h2>
+
+		<f:if condition="{work.parts}">
+
+			<f:for each="{work.parts}" as="part">
+
+				<div class="alibox">
+
+					<h3 class="aliboxheader">{part.title}</h3>
+
+					<f:if condition="{part.act} > 0">
+						<p><strong><f:translate key="parts.act" />: </strong><f:translate key="parts.act.I.{part.act}" /></p>
+					</f:if>
+
+					<f:if condition="{part.scene} > 0">
+						<p><strong><f:translate key="parts.scene" />: </strong>
+							<f:if condition="{part.scene} == 99">
+								<f:comment>99 is assigned as value to scenes marked as "letzte Szene" in backend</f:comment>
+								<f:then>
+									<f:translate key="parts.last_scene" />
+								</f:then>
+								<f:else>
+									{part.scene}
+								</f:else>
+							</f:if>
+						</p>
+					</f:if>
+
+					<f:if condition="{part.featuredIn}">
+						<p><strong><f:translate key="parts.featured_in" />: </strong></p>
+						<ul>
+						<f:for each="{borrowings}" as="borrowing" key="key">
+							<f:if condition="{part.uid} == {key}">
+								<f:for each="{borrowing.featuredIn}" as="featuredPart">
+									<li>{featuredPart.works.title}, {featuredPart.title}</li>
+									<br/>
+								</f:for>
+							</f:if>
+						</f:for>
+						</ul>
+					</f:if>
+
+					<f:if condition="{part.borrowedFrom}">
+						<p><strong><f:translate key="parts.borrowed_from" />:</strong></p>
+						<ul>
+						<f:for each="{borrowings}" as="borrowing" key="key">
+							<f:if condition="{part.uid} == {key}">
+								<f:for each="{borrowing.borrowedFrom}" as="borrowedPart">
+									<li>{borrowedPart.works.title}, {borrowedPart.title}</li>
+									<br/>
+								</f:for>
+							</f:if>
+						</f:for>
+						</ul>
+					</f:if>
+
+					<f:if condition="{part.externalSource}">
+						<p><strong><f:translate key="parts.externalSource.I.0"/></strong></p>
+						<f:format.html>{part.externalSource}</f:format.html>
+					</f:if>
+
+					<f:if condition="{part.sources}">
+						<p><strong><f:translate key="parts.sources" />:</strong></p>
+						<ul>
+						<f:for each="{part.sources}" as="source">
+							<li><f:link.action action="show" controller="Sources" pluginName="search" arguments="{source : source.uid}" pageUid="1656">{source.signature}</f:link.action></li>
+						</f:for>
+						</ul>
+					</f:if>
+				</div>
+			</f:for>
+
+		 </f:if>
+	</div>
+
+
+	<!-- TAB 5: BORROWINGS -->
+
+	<div id="borrowings">
+		<h2><f:translate key="works.borrowings" /></h2>
+
+		<f:if condition="{borrowings}">
+
+			<f:then>
+				<f:for each="{borrowings}" as="part">
+
+					<h3>{part.title}</h3>
+
+					<f:if condition="{part.borrowedFrom}">
+						<p><strong><f:translate key="parts.borrowed_from" />:</strong></p>
+						<ul>
+						<f:for each="{part.borrowedFrom}" as="borrowedPart">
+							<li>
+								{borrowedPart.works.title}, {borrowedPart.title}
+							</li>
+						</f:for>
+						</ul>
+					</f:if>
+
+					<f:if condition="{part.featuredIn}">
+						<p><strong><f:translate key="parts.featured_in" />: </strong></p>
+						<ul>
+						<f:for each="{part.featuredIn}" as="featuredPart">
+							<li>
+								{featuredPart.works.title}, {featuredPart.title}
+							</li>
+						</f:for>
+						</ul>
+					</f:if>
+
+					<f:if condition="{part.externalSource}">
+						<p><strong><f:translate key="parts.externalSource" /></strong></p>
+						<f:format.html><f:translate key="parts.externalSource" /></f:format.html>
+					</f:if>
+
+					<f:if condition="{part.borrowingInformation}">
+						<p><strong>Weitere Informationen:</strong></p>
+						<f:format.html>{part.borrowingInformation}</f:format.html>
+					</f:if>
+
+				</f:for>
+
+			</f:then>
+			<f:else>
+				<p><f:translate key="none" /></p>
+			</f:else>
+
+		</f:if>
+
+		<f:if condition="{work.anonymusTexts}">
+			<h3>Anonym überlieferte Arientexte:</h3>
+			<f:format.html>{work.anonymusTexts}</f:format.html>
+		</f:if>
+
+	</div>
+
+
+	<!-- TAB 6: SOURCES -->
+
+	<div id="sources">
+		<h2><f:translate key="works.sources" /></h2>
+		
+		<f:if condition="{sources}">
+
+			<f:then>
+				<f:if condition="{sources}">
+
+					<f:then>
+						<f:groupedFor each="{sources}" as="sourcesByCategory" groupBy="category" groupKey="category">
+
+							<h3><f:translate key="sources.category.I.{category}" /></h3>
+							<f:groupedFor each="{sourcesByCategory}" as="sourcesByType" groupBy="type" groupKey="type">
+
+								<h4><f:translate key="sources.type.I.{type}" /></h4>
+								<f:groupedFor each="{sourcesByType}" as="sourcesBySubtype" groupBy="subtype" groupKey="subtype">
+
+									<f:if condition="{subtype} > 0"><h5><f:translate key="sources.subtype.I.{subtype}" /></h5></f:if>
+
+									<f:groupedFor each="{sourcesBySubtype}" as="sourcesByBoundTo" groupBy="boundTo" groupKey="boundTo">
+
+										<p><strong><f:translate key="sources.boundTo.I.{boundTo}" /></strong></p>
+
+										<f:for each="{sourcesByBoundTo}" as="source">
+
+											<div class="alibox" style="margin: 0.8em 0 2.8em 0; border-bottom: 1px dashed #000;">
+
+												<p class="aliboxheader">
+													<f:if condition="{source.partTitle}">
+														<strong>{source.partTitle}, </strong>
+													</f:if>
+													<strong><f:translate key="sources.signature" />: <f:link.action action="show" controller="Sources" pluginName="search" arguments="{source : source.uid}" pageUid="1656">{source.signature}</f:link.action></strong>
+												</p>
+	
+												<f:if condition="{source.archive}">
+													<p><strong><f:translate key="sources.archive" />:</strong> {source.archive.name}</p>
+												</f:if>
+	
+												<f:if condition="{source.otherArchives}">
+													<p><strong><f:translate key="sources.otherArchives" />:</strong></p>
+													<ul>
+														<f:for each="{source.otherArchives}" as="otherArchive">
+															<li>{otherArchive.name}</li>
+														</f:for>
+													</ul>
+												</f:if>
+	
+												<f:if condition="{source.dateRange.dateComment}">
+													<p><strong><f:translate key="sources.daterange" />:</strong> {source.dateRange.dateComment}</p>
+												</f:if>
+	
+												<f:if condition="{source.quality}">
+													<p><strong><f:translate key="sources.quality" />:</strong> <f:translate key="sources.quality.I.{source.quality}" /></p>
+												</f:if>
+	
+												<f:if condition="{source.quality}">
+													<p><strong><f:translate key="sources.kind" />:</strong> <f:translate key="sources.kind.I.{source.kind}" /></p>
+												</f:if>
+	
+												<f:if condition="{source.description}">
+													<p><strong><f:translate key="sources.description" />:</strong> </p><f:format.html>{source.description}</f:format.html>
+												</f:if>
+	
+												<f:if condition="{source.externalReferences}">
+													<p><strong><f:translate key="sources.external" />:</strong> </p><f:format.html>{source.externalReferences}</f:format.html>
+												</f:if>
+	
+												<f:if condition="{source.relatedPersons}">
+													<p><strong><f:translate key="works.persons" />:</strong></p>
+													<ul>
+													<!-- Choreograph -->
+													<!-- Graveur -->
+													<!-- Komponist -->
+													<!-- Sänger -->
+													<!-- Schreiber -->
+													<!-- Tänzer -->
+													<!-- Übersetzer -->
+													<!-- unbekannt -->
+													<!-- Verleger -->
+													<!-- Vorbesitzer -->
+													<!-- Widmungsträger -->
+													<f:for each="{source.relatedPersons}" as="relatedPerson">
+														<f:link.action action="show" controller="Persons" pluginName="registers" arguments="{person : relatedPerson.person.uid}" pageUid="1645"><li>{relatedPerson.person.name} (<f:translate key="function.I.{relatedPerson.function}" />) {relatedPerson.person.description}</li></f:link.action>
+													</f:for>
+													</ul>
+												</f:if>
+											</div>
+
+										</f:for>
+
+									</f:groupedFor>
+
+								</f:groupedFor>
+
+							</f:groupedFor>
+
+						</f:groupedFor>
+					</f:then>
+
+					<f:else><p><f:translate key="none" /></p></f:else>
+
+				</f:if>
+			</f:then>
+
+			<f:else><p><f:translate key="none" /></p></f:else>
+
+		</f:if>
+		
+	</div>
+
+	<!-- TAB 7: LITERATURE -->
+	<div id="literature">
+		<h2><f:translate key="works.literature" /></h2>
+
+		<f:if condition="{work.literature}">
+			<f:then>
+				<f:for each="{work.literature}" as="reference">
+					<f:format.html><f:if condition="{reference.aut}"><strong>{reference.aut}: </strong></f:if>{reference.titel}<f:if condition="{reference.series}">, in: {reference.series}</f:if><f:if condition="{reference.ort}"><f:then>, {reference.ort}<f:if condition="{reference.jahr}"> {reference.jahr}</f:if></f:then><f:else><f:if condition="{reference.jahr}"><f:then>, {reference.jahr}</f:then></f:if></f:else></f:if><f:if condition="{reference.page}">, {reference.page}</f:if>.<f:if condition="{reference.isbn}"> ISBN/ISSN: {reference.isbn}</f:if></f:format.html>
+				</f:for>
+			</f:then>
+			<f:else>
+				<p><f:translate key="none" /></p>
+			</f:else>
+		</f:if>
+	</div>
+
+	</cr:highlight>
+
+	<p class="box">
+		<strong><f:translate key="citation" />:</strong><br/>
+		Citation, URI:
+		<f:link.external uri="{f:cObject(typoscriptObjectPath : 'lib.tx_catalogueraisonne.TYPO3_SITE_URL')}id/{work.identifier}">{f:cObject(typoscriptObjectPath : 'lib.tx_catalogueraisonne.TYPO3_SITE_URL')}id/{work.identifier}</f:link.external>
+		(<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.currentDate" />)
+	</p>
+
+	<f:if condition="{arguments -> f:count()} > 3">
+		<f:then>
+			<p>
+				<f:link.action action="search" arguments="{arguments}" class="button" section="maincontent">
+					<f:translate key="backToList" />
+				</f:link.action>
+			</p>
+		</f:then>
+		<f:else>
+			<f:render partial="Registers/BackToList" arguments="{settings : settings}" />
+		</f:else>
+	</f:if>
+
+</f:section>
+
+<f:section name="Additionalcontent">
+	<ul id="work_nav">
+		<li><a class="general" href="#general"><f:translate key="general.I.0." /></a></li>
+		<li><a class="persons" href="#persons"><f:translate key="works.persons" /></a></li>
+		<li><a class="genesis" href="#genesis"><f:translate key="registers.genesis" /></a></li>
+		<li><a class="parts" href="#parts"><f:translate key="works.parts" /></a></li>
+		<li><a class="borrowings" href="#borrowings"><f:translate key="works.borrowings" /></a></li>
+		<li><a class="sources" href="#sources"><f:translate key="works.sources" /></a></li>
+		<li><a class="literature" href="#literature"><f:translate key="works.literature" /></a></li>
+	</ul>
+</f:section>

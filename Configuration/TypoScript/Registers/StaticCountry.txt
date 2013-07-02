@@ -1,0 +1,13 @@
+lib.tx_catalogueraisonne.registers {
+	StaticCountry = RECORDS
+	StaticCountry {
+		source.field = country
+		tables = static_countries
+		dontCheckPid = 1
+		conf.static_countries = TEXT
+		conf.static_countries {
+			field = cn_short_de
+		}
+	}
+
+}

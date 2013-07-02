@@ -1,0 +1,52 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="2Columns" />
+
+<f:section name="Maincontent">
+
+	<f:render partial="Registers/BackToList" arguments="{settings : settings}" />
+
+	<h2>{archive.description}</h2>
+
+	<f:if condition="{archive.placeOfArchive}">
+		<p><strong><f:translate key="archives.place" />: </strong>{archive.placeOfArchive.name}</p>
+	</f:if>
+
+	<f:if condition="{archive.country}">
+		<p><strong><f:translate key="archives.country" />: </strong><f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.registers.StaticCountry" data="{country : archive.country}" /></p>
+	</f:if>
+
+	<f:if condition="{archive.country}">
+		<p><strong>RISM Siglum</strong>: {archive.name}</p>
+	</f:if>
+
+	<f:if condition="{archive.coordinates}">
+		<h3><f:translate key="map" />:</h3>
+		<cr:leaflet objects="{0 : {0 : archive}}" coordinatesProperty="coordinates" zoom="12" setView="{archive.coordinates}" mapHeight="180" />
+	</f:if>
+
+	<f:if condition="{relatedWorks}">
+		<cr:sort subject="{relatedWorks}" as="relatedWorks" sortBy="title" order="ASC" sortFlags="SORT_REGULAR">
+			<h3><f:translate key="archives.relatedWorks" />:</h3>
+			<ul>
+			<f:for each="{relatedWorks}" as="work">
+				<f:if condition="{work.hidden}">
+					<f:then>
+						<li>{work.title}</li>
+					</f:then>
+					<f:else>
+						<li><f:link.action action="show" controller="Works" arguments="{work : work.uid}" pageUid="1643">{work.title}</f:link.action></li>
+					</f:else>
+				</f:if>
+			</f:for>
+			</ul>
+		</cr:sort>
+	</f:if>
+
+	<f:render partial="Registers/BackToList" arguments="{settings : settings}" />
+
+</f:section>
+
+<f:section name="Additionalcontent">
+	<f:render partial="Registers/Registernav" />
+</f:section>

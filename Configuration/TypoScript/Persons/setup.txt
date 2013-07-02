@@ -1,0 +1,2 @@
+# person has work test
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Persons/PersonHasWorkTest.txt">

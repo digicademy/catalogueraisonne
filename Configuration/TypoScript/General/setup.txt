@@ -1,0 +1,4 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/General/parseFuncLiterature.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/General/linkifier.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/General/actionlink.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/General/TYPO3_SITE_URL.txt">

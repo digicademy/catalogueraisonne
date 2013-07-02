@@ -1,0 +1,52 @@
+{namespace paginator = Tx_Paginator_ViewHelpers}
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:if condition="{results}">
+	<f:then>
+
+		<paginator:widget.list objects="{results}" as="paginatedResults" arguments="{searchterm : searchterm}" configuration="{itemsPerPage: 10, maxPageNumberElements:10, insertAbove: 1, insertBelow: 1, showResultHeader: 0}">
+
+			<div id="tx_catalogueraisonne_literature-search">
+
+				<div class="box">
+
+					<p id="resultinfo">{f:translate(key: 'literature.searchedfor', default: 'You searched
+						for')} "{searchterm}"<br />{f:translate(key:'literature.therewere', default: 'There were')}
+						<f:count>{results}</f:count>
+						{f:translate(key: 'literature.hits', default: 'hits')}.
+					</p>
+
+					<p id="searchmods">
+						<f:link.action action="form" class="button">{f:translate(key: 'literature.newsearch', default: 'New search')}</f:link.action>
+					</p>
+
+				</div>
+
+				<h2>{f:translate(key: 'literature.searchresult', default:'Searchresult')}</h2>
+				<f:for each="{paginatedResults}" as="result" iteration="number">
+					<cr:highlight terms="{searchwords}">
+						<p class="item">
+							<strong><f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.resultNumbers" data="{counter : number.cycle}" />) </strong>
+							<f:if condition="{result.aut}">{result.aut}: </f:if>{result.titel -> f:format.html(parseFuncTSPath : 'lib.tx_catalogueraisonne.literature.output.parseFunc')}<f:if condition="{result.series}">, in: {result.series -> f:format.html(parseFuncTSPath : 'lib.tx_catalogueraisonne.literature.output.parseFunc')}</f:if><f:if condition="{result.ort}"><f:then>, {result.ort}<f:if condition="{result.jahr}"> {result.jahr}</f:if></f:then><f:else><f:if condition="{result.jahr}"><f:then>, {result.jahr}</f:then></f:if></f:else></f:if><f:if condition="{result.page}">, {result.page}</f:if>.<f:if condition="{result.isbn}"> ISBN/ISSN: {result.isbn}<f:if condition="{pageUid} == 1659"><f:if condition="{result.cod}"><p><strong>{f:translate(key: 'literature.cod', default: 'Description:')}</strong> {result.cod}</p></f:if><f:if condition="{result.qn}"><p><strong>{f:translate(key: 'literature.qn', default: 'Reference:')}</strong> {result.qn}</p></f:if><f:if condition="{result.bib}"><p><strong>{f:translate(key: 'literature.bib', default: 'Library:')}</strong> {result.bib}</p></f:if></f:if></f:if>
+						</p>
+					</cr:highlight>
+
+				</f:for>
+
+			</div>
+
+		</paginator:widget.list>
+
+	</f:then>
+
+	<f:else>
+		<div class="box">
+			<p>Suche nach "{searchterm}"<br />
+			Keine Treffer gefunden!</p>
+			<p id="searchmods">
+				<f:link.action action="form" class="button">{f:translate(key: 'literature.newsearch', default: 'New search')}</f:link.action>
+			</p>
+		</div>
+	</f:else>
+
+</f:if>

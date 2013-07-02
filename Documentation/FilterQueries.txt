@@ -1,0 +1,82 @@
+### WORK FILTERS ###
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_works.uid) AS count, tx_catalogueraisonne_domain_model_works.type 
+FROM tx_catalogueraisonne_domain_model_works
+WHERE tx_catalogueraisonne_domain_model_works.hidden != 1 AND tx_catalogueraisonne_domain_model_works.deleted != 1 AND tx_catalogueraisonne_domain_model_works.type > 0
+GROUP BY tx_catalogueraisonne_domain_model_works.type
+
+---
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_works.uid) AS count, tx_catalogueraisonne_domain_model_works.original_language 
+FROM tx_catalogueraisonne_domain_model_works
+WHERE tx_catalogueraisonne_domain_model_works.hidden != 1 AND tx_catalogueraisonne_domain_model_works.deleted != 1 AND tx_catalogueraisonne_domain_model_works.original_language > 0
+GROUP BY tx_catalogueraisonne_domain_model_works.original_language
+
+---
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_works.uid) AS count, tx_catalogueraisonne_domain_model_works.authenticity 
+FROM tx_catalogueraisonne_domain_model_works
+WHERE tx_catalogueraisonne_domain_model_works.hidden != 1 AND tx_catalogueraisonne_domain_model_works.deleted != 1
+GROUP BY tx_catalogueraisonne_domain_model_works.authenticity
+
+### PLACES FILTERS ###
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_places.uid) AS count, static_countries.cn_official_name_en, static_countries.uid 
+FROM tx_catalogueraisonne_domain_model_places
+LEFT JOIN static_countries
+ON tx_catalogueraisonne_domain_model_places.country = static_countries.uid
+WHERE tx_catalogueraisonne_domain_model_places.hidden != 1 AND tx_catalogueraisonne_domain_model_places.deleted != 1 AND tx_catalogueraisonne_domain_model_places.country > 0
+GROUP BY static_countries.uid
+
+### PERSONS FILTERS ###
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_persons.uid) AS count, tx_catalogueraisonne_domain_model_workspersonsrelations.function
+FROM tx_catalogueraisonne_domain_model_persons 
+LEFT JOIN tx_catalogueraisonne_domain_model_workspersonsrelations 
+ON tx_catalogueraisonne_domain_model_persons.uid = tx_catalogueraisonne_domain_model_workspersonsrelations.person
+WHERE tx_catalogueraisonne_domain_model_persons.hidden != 1 AND tx_catalogueraisonne_domain_model_persons.deleted != 1 AND tx_catalogueraisonne_domain_model_workspersonsrelations.function > 0
+GROUP BY tx_catalogueraisonne_domain_model_workspersonsrelations.function
+
+---
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_persons.uid) AS count, tx_catalogueraisonne_domain_model_sourcespersonsrelations.function
+FROM tx_catalogueraisonne_domain_model_persons 
+LEFT JOIN tx_catalogueraisonne_domain_model_sourcespersonsrelations 
+ON tx_catalogueraisonne_domain_model_persons.uid = tx_catalogueraisonne_domain_model_sourcespersonsrelations.person
+WHERE tx_catalogueraisonne_domain_model_persons.hidden != 1 AND tx_catalogueraisonne_domain_model_persons.deleted != 1 AND tx_catalogueraisonne_domain_model_sourcespersonsrelations.function > 0
+GROUP BY tx_catalogueraisonne_domain_model_sourcespersonsrelations.function
+
+### ARCHIVES FILTERS ###
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_archives.uid) AS count, static_countries.cn_official_name_en, static_countries.uid 
+FROM tx_catalogueraisonne_domain_model_archives
+LEFT JOIN static_countries
+ON tx_catalogueraisonne_domain_model_archives.country = static_countries.uid
+WHERE tx_catalogueraisonne_domain_model_archives.hidden != 1 AND tx_catalogueraisonne_domain_model_archives.deleted != 1 AND tx_catalogueraisonne_domain_model_archives.country > 0
+GROUP BY static_countries.uid
+
+##
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_works.uid)
+FROM tx_catalogueraisonne_domain_model_works
+LEFT JOIN tx_catalogueraisonne_works_sources_mm ON tx_catalogueraisonne_domain_model_works.uid=tx_catalogueraisonne_works_sources_mm.uid_local
+LEFT JOIN tx_catalogueraisonne_domain_model_sources ON tx_catalogueraisonne_works_sources_mm.uid_foreign=tx_catalogueraisonne_domain_model_sources.uid
+LEFT JOIN tx_catalogueraisonne_domain_model_archives ON tx_catalogueraisonne_domain_model_sources.archive=tx_catalogueraisonne_domain_model_archives.uid
+WHERE (tx_catalogueraisonne_domain_model_works.deleted < '1'
+AND tx_catalogueraisonne_domain_model_archives.uid = '135')
+AND tx_catalogueraisonne_domain_model_works.sys_language_uid IN (0,-1)
+AND tx_catalogueraisonne_domain_model_sources.sys_language_uid IN (0,-1)
+AND tx_catalogueraisonne_domain_model_archives.sys_language_uid IN (0,-1)
+
+SELECT COUNT(DISTINCT tx_catalogueraisonne_domain_model_works.uid)
+FROM tx_catalogueraisonne_domain_model_works
+LEFT JOIN tx_catalogueraisonne_domain_model_parts ON tx_catalogueraisonne_domain_model_works.uid=tx_catalogueraisonne_domain_model_parts.works
+LEFT JOIN tx_catalogueraisonne_parts_sources_mm ON tx_catalogueraisonne_domain_model_parts.uid=tx_catalogueraisonne_parts_sources_mm.uid_local
+LEFT JOIN tx_catalogueraisonne_domain_model_sources ON tx_catalogueraisonne_parts_sources_mm.uid_foreign=tx_catalogueraisonne_domain_model_sources.uid
+LEFT JOIN tx_catalogueraisonne_domain_model_archives ON tx_catalogueraisonne_domain_model_sources.archive=tx_catalogueraisonne_domain_model_archives.uid
+WHERE (tx_catalogueraisonne_domain_model_works.deleted < '1'
+AND tx_catalogueraisonne_domain_model_archives.uid = '135')
+AND tx_catalogueraisonne_domain_model_works.sys_language_uid IN (0,-1)
+AND tx_catalogueraisonne_domain_model_parts.sys_language_uid IN (0,-1)
+AND tx_catalogueraisonne_domain_model_sources.sys_language_uid IN (0,-1)
+AND tx_catalogueraisonne_domain_model_archives.sys_language_uid IN (0,-1)

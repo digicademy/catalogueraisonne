@@ -1,0 +1,21 @@
+#######################################################################
+# BASIC settings
+#######################################################################
+
+# sources plugin configuration
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Plugin/setup.txt">
+
+# general libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/General/setup.txt">
+
+# literature libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Literature/setup.txt">
+
+# register libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Registers/setup.txt">
+
+# person libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Persons/setup.txt">
+
+# sources libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Works/setup.txt">

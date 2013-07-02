@@ -1,0 +1,86 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="2Columns" />
+
+<f:section name="Maincontent">
+
+	<f:render partial="Registers/BackToList" arguments="{settings : settings}" />
+
+	<h2>{person.name}</h2>
+
+	<f:if condition="{person.pnd}">
+		<p><strong>GND: </strong><f:link.external uri="http://d-nb.info/gnd/{person.pnd}">{person.pnd}</f:link.external></p>
+	</f:if>
+
+	<f:if condition="{person.nameVariants}">
+		<p><strong><f:translate key="persons.namevariants"/>: </strong>{person.nameVariants}</p>
+	</f:if>
+
+	<f:if condition="{person.titles}">
+		<p><strong><f:translate key="persons.titles"/>: </strong>{person.titles}</p>
+	</f:if>
+
+	<f:if condition="{person.curriculumVitae}">
+		<p><strong><f:translate key="persons.cv"/>:</strong> {person.curriculumVitae}</p>
+	</f:if>
+
+	<f:if condition="{relatedWorks}">
+		<h3><f:translate key="persons.relatedworks"/></h3>
+		<ul>
+		<f:for each="{relatedWorks}" as="relatedWork" iteration="iteration">
+			<f:if condition="{relatedWork.hidden} == 1">
+				<f:then>
+					<li>{relatedWork.title},
+						<f:for each="{relatedWork.relatedPersons}" as="worksPersonRelation">
+							<f:if condition="{worksPersonRelation.person.uid} == {person.uid}">
+								<f:translate key="function.I.{worksPersonRelation.function}" />
+							</f:if>
+						</f:for>
+					</li>
+				</f:then>
+				<f:else>
+					<li>
+						<f:link.action action="show" controller="Works" arguments="{work : relatedWork.uid}" pageUid="1643">
+							{relatedWork.title},
+							<f:for each="{relatedWork.relatedPersons}" as="worksPersonRelation">
+								<f:if condition="{worksPersonRelation.person.uid} == {person.uid}">
+									<f:translate key="function.I.{worksPersonRelation.function}" />
+								</f:if>
+							</f:for>
+						</f:link.action>
+					</li>
+				</f:else>
+			</f:if>
+		</f:for>
+		</ul>
+	</f:if>
+
+	<f:if condition="{relatedSources}">
+		<h3><f:translate key="persons.relatedsources"/></h3>
+		<ul>
+		<f:for each="{relatedSources}" as="relatedSource" >
+			<li>
+				<f:link.action action="show" controller="Sources" arguments="{source : relatedSource.uid}" pageUid="1656">
+					{relatedSource.signature},
+					<f:for each="{relatedSource.relatedPersons}" as="sourcePersonRelation" iteration="iterator">
+						<f:if condition="{person.uid} == {sourcePersonRelation.person.uid}">
+							<cr:melt array1="{arguments : arguments}" array2="{count : iterator.cycle}" />
+							<f:if condition="{arguments.count} > 1">
+								<f:then>/ <f:translate key="function.I.{sourcePersonRelation.function}" /></f:then>
+								<f:else><f:translate key="function.I.{sourcePersonRelation.function}" /></f:else>
+							</f:if>
+						</f:if>
+					</f:for>
+				</f:link.action>
+			</li>
+		</f:for>
+		</ul>
+	</f:if>
+
+	<f:render partial="Registers/BackToList" arguments="{settings : settings}" />
+
+</f:section>
+
+<f:section name="Additionalcontent">
+	<f:render partial="Registers/Registernav" />
+</f:section>

@@ -1,0 +1,30 @@
+plugin.tx_linkifier.linkhandlers {
+
+	# as registered in ext_localconf.php
+	gwl {
+
+		# name of a table from $TCA
+		table = tx_catalogueraisonne_domain_model_literature
+
+		# name of the field that contains the record identifier
+		recordIdentifier = uid
+
+		# rendering configuration for the link to the record
+		recordConfiguration {
+			10 = TEXT
+			10 {
+				# debugData = 1
+				field = linkifier_linkText
+				typolink {
+					useCacheHash = 1
+					
+					# pid of site where content is displayed (here: literature search)
+					parameter = 10
+					
+					# given reference (= pid, link attribute); name of called Action and Controller
+					additionalParams.dataWrap = &tx_catalogueraisonne_literature[reference]={field : linkifier_linkHandlerValue}&tx_catalogueraisonne_literature[action]=show&tx_catalogueraisonne_literature[controller]=Literature
+				}
+			}
+		}
+	}
+}

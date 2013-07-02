@@ -1,0 +1,127 @@
+<f:if condition="{configuration.showCount}">
+	<p class="count">
+		<f:translate key="list.count" arguments="{1: figures.total}" />
+		<f:translate key="list.range" arguments="{1: figures.rangeFrom, 2: figures.rangeTo}" />
+	</p>
+</f:if>
+
+<f:if condition="{configuration.insertAbove}">
+<f:if condition="{pagination.numberOfPages} > 1">
+
+	<ul class="pagination">
+
+		<f:if condition="{pagination.numberOfPages} > {configuration.maxPageNumberElements}">
+			<f:if condition="{pagination.previousPageRange} > 0">
+				<f:then>
+					<li class="first button">
+						<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '««', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]=0&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+					</li>
+					<li class="previous button">
+						<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '«', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={pagination.previousPageRange}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+					</li>
+				</f:then>
+			</f:if>
+		</f:if>
+
+		<f:for each="{pagination.pages}" as="page">
+			<f:if condition="{page.isCurrent}">
+				<f:then>
+					<li class="act button">
+						{page.number}
+					</li>
+				</f:then>
+				<f:else>
+					<li class="button">
+						<f:if condition="{page.number} > 1">
+							<f:then>
+								<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '{page.number}', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={page.number}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+							</f:then>
+							<f:else>
+								<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '{page.number}', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={page.number}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+							</f:else>
+						</f:if>
+					</li>
+				</f:else>
+			</f:if>
+		</f:for>
+		
+		<f:if condition="{pagination.numberOfPages} > {configuration.maxPageNumberElements}">
+			<f:if condition="{pagination.nextPageRange} > 0">
+				<f:then>
+					<li class="next button">
+						<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '»', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={pagination.nextPageRange}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+					</li>
+					<li class="last button">
+						<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '»»', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={pagination.numberOfPages}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+					</li>
+				</f:then>
+			</f:if>
+		</f:if>
+		
+	</ul>
+
+</f:if>
+
+</f:if>
+
+<f:renderChildren arguments="{objects}" />
+
+<f:if condition="{configuration.insertBelow}">
+
+<f:if condition="{pagination.numberOfPages} > 1">
+
+	<ul class="pagination">
+
+		<f:if condition="{pagination.numberOfPages} > {configuration.maxPageNumberElements}">
+			<f:if condition="{pagination.previousPageRange} > 0">
+				<f:then>
+					<li class="first button">
+						<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '««', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]=0&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+					</li>
+					<li class="previous button">
+						<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '«', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={pagination.previousPageRange}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+					</li>
+				</f:then>
+			</f:if>
+		</f:if>
+
+		<f:for each="{pagination.pages}" as="page">
+			<f:if condition="{page.isCurrent}">
+				<f:then>
+					<li class="act button">
+						{page.number}
+					</li>
+				</f:then>
+				<f:else>
+					<li class="button">
+						<f:if condition="{page.number} > 1">
+							<f:then>
+								<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '{page.number}', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={page.number}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+							</f:then>
+							<f:else>
+								<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '{page.number}', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={page.number}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+							</f:else>
+						</f:if>
+					</li>
+				</f:else>
+			</f:if>
+		</f:for>
+
+		<f:if condition="{pagination.numberOfPages} > {configuration.maxPageNumberElements}">
+			<f:if condition="{pagination.nextPageRange} > 0">
+				<f:then>
+					<li class="next button">
+						<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '»', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={pagination.nextPageRange}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+					</li>
+					<li class="last button">
+						<f:cObject typoscriptObjectPath="lib.tx_catalogueraisonne.actionlink" data="{linkText: '»»', pageUid: '{settings.literature.listPid}', additionalParams: '&tx_catalogueraisonne_literature[searchterm]={arguments.searchterm}&tx_catalogueraisonne_literature[%40widget_0][currentPage]={pagination.numberOfPages}&tx_catalogueraisonne_literature[action]=search&tx_catalogueraisonne_literature[controller]=Literature', aTagParams: 'class=\"test\"'}" />
+					</li>
+				</f:then>
+			</f:if>
+		</f:if>
+
+	</ul>
+
+</f:if>
+
+</f:if>

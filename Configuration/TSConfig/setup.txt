@@ -1,0 +1,36 @@
+TCEFORM {
+
+	tx_catalogueraisonne_domain_model_works {
+		sources.PAGE_TSCONFIG_ID = 1591
+		type.removeItems = 50
+	}
+
+}
+
+TCAdefaults {
+
+	tx_catalogueraisonne_domain_model_persons.pid = 1366
+	tx_catalogueraisonne_domain_model_places.pid = 1367
+	tx_catalogueraisonne_domain_model_archives.pid = 1368
+	tx_catalogueraisonne_domain_model_workspersonsrelations.pid = 1369
+	tx_catalogueraisonne_domain_model_sourcespersonsrelations.pid = 1369
+	tx_catalogueraisonne_domain_model_dateranges.pid = 1369
+
+}
+
+TCEMAIN.permissions {
+
+	userid = 40
+
+	groupid = 11
+
+	user = show,edit,delete,new,editcontent
+
+	group = show,edit,delete,new,editcontent
+
+	everybody = 
+}
+
+mod.web_list {
+	allowedNewTables = pages
+}

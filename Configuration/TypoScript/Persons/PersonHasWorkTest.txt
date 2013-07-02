@@ -1,0 +1,25 @@
+lib.tx_catalogueraisonne.persons.PersonHasWorkTest = CONTENT
+lib.tx_catalogueraisonne.persons.PersonHasWorkTest {
+	table = tx_catalogueraisonne_domain_model_persons
+	select {
+		pidInList = 1366
+		selectFields = COUNT(tx_catalogueraisonne_domain_model_persons.uid) AS count
+		leftjoin = tx_catalogueraisonne_domain_model_workspersonsrelations ON tx_catalogueraisonne_domain_model_workspersonsrelations.person = tx_catalogueraisonne_domain_model_persons.uid LEFT JOIN tx_catalogueraisonne_domain_model_works ON tx_catalogueraisonne_domain_model_workspersonsrelations.work = tx_catalogueraisonne_domain_model_works.uid
+		where.dataWrap = tx_catalogueraisonne_domain_model_persons.uid = {field:person} AND tx_catalogueraisonne_domain_model_works.hidden = 0
+	}
+	renderObj = TEXT
+	renderObj {
+		field = count
+	}
+}
+
+/*
+SELECT COUNT(tx_catalogueraisonne_domain_model_persons.uid) 
+FROM tx_catalogueraisonne_domain_model_persons 
+LEFT JOIN tx_catalogueraisonne_domain_model_workspersonsrelations
+ON tx_catalogueraisonne_domain_model_workspersonsrelations.person = tx_catalogueraisonne_domain_model_persons.uid
+LEFT JOIN tx_catalogueraisonne_domain_model_works
+ON tx_catalogueraisonne_domain_model_workspersonsrelations.work = tx_catalogueraisonne_domain_model_works.uid
+WHERE tx_catalogueraisonne_domain_model_persons.uid = 3
+AND tx_catalogueraisonne_domain_model_works.hidden = 0
+*/

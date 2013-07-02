@@ -1,0 +1,114 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:layout name="1Column" />
+
+<f:section name="Maincontent">
+
+	<f:if condition="{arguments -> f:count()} > 3">
+		<p>
+			<f:link.action action="search" arguments="{arguments}" class="button" section="maincontent">
+				<f:translate key="backToList" />
+			</f:link.action>
+		</p>
+	</f:if>
+
+	<f:if condition="relatedWorks"></f:if>
+	<h4>
+		<f:for each="{relatedWorks}" as="work">
+			<f:if condition="{work.hidden} == 1">
+				<f:then>
+					{work.title}
+				</f:then>
+				<f:else>
+					<f:link.action action="show" pluginName="Registers" controller="Works" arguments="{work : work.uid}" pageUid="1643">
+						{work.title}
+					</f:link.action>
+				</f:else>
+			</f:if>
+		</f:for>
+		<f:if condition="{source.relatedParts}">
+			<f:for each="{source.relatedParts}" as="part">
+				– {part.title}
+			</f:for>
+		</f:if>
+	</h4>
+	</if>
+
+	<h2>{source.signature}</h2>
+
+	<f:if condition="{source.dateRange}">
+			<p><strong><f:translate key="sources.daterange" />:</strong> {source.dateRange.startDate}</p>
+	</f:if>
+
+	<f:if condition="{source.archive}">
+		<p>
+			<strong><f:translate key="sources.archive" />:</strong>
+			<f:link.action action="show" controller="Archives" pluginName="Registers" arguments="{archive : source.archive.uid}" pageUid="1646">
+				{source.archive.name}
+			</f:link.action>
+		</p>
+	</f:if>
+
+	<f:if condition="{source.otherArchives}">
+		<p><strong><f:translate key="sources.otherArchives" />: </strong></p>
+		<ul>
+			<f:for each="{source.otherArchives}" as="archive">
+				<li>
+					<f:link.action action="show" controller="Archives" pluginName="Registers" arguments="{archive : archive.uid}" pageUid="1646">
+						{archive.name}
+					</f:link.action>
+				</li>
+			</f:for>
+		</ul>
+	</f:if>
+
+	<f:if condition="{source.category}">
+		<p><strong><f:translate key="sources.category" />:</strong> <f:translate key="sources.category.I.{source.category}" /></p>
+	</f:if>
+
+	<f:if condition="{source.type}">
+		<p><strong><f:translate key="sources.type" />:</strong> <f:translate key="sources.type.I.{source.type}" /></p>
+	</f:if>
+
+	<f:if condition="{source.subtype}">
+		<p><strong><f:translate key="sources.subtype" />:</strong> <f:translate key="sources.subtype.I.{source.subtype}" /></p>
+	</f:if>
+
+	<f:if condition="{source.kind}">
+		<p><strong><f:translate key="sources.kind" />:</strong> <f:translate key="sources.kind.I.{source.kind}" /></p>
+	</f:if>
+
+	<f:if condition="{source.quality}">	
+		<p><strong><f:translate key="sources.quality" />:</strong> <f:translate key="sources.quality.I.{source.quality}" /></p>
+	</f:if>
+	
+	<f:if condition="{source.description}">
+		<p><strong><f:translate key="sources.description" />:</strong> <f:format.html>{source.description}</f:format.html></p>
+	</f:if>
+	
+	<f:if condition="{source.externalReferences}">
+		<p><strong><f:translate key="sources.external" />:</strong> <f:format.html>{source.externalReferences}</f:format.html></p>
+	</f:if>
+
+	<f:if condition="{source.relatedPersons}">
+		<p><strong>Personen:</strong></p>
+		<ul>
+			<f:for each="{source.relatedPersons}" as="relatedPerson" iteration="balla">
+				<li>
+				<f:link.action action="show" controller="Persons" arguments="{person : relatedPerson.person.uid}" pageUid="1645">
+					{relatedPerson.person.name} (<f:translate key="function.I.{relatedPerson.function}" />) {relatedPerson.person.description}
+				</f:link.action>
+				</li>
+			</f:for>
+		</ul>
+	</f:if>
+
+	<f:if condition="{arguments -> f:count()} > 3">
+		<p>
+			<f:link.action action="search" arguments="{arguments}" class="button" section="maincontent">
+				<f:translate key="backToList" />
+			</f:link.action>
+		</p>
+	</f:if>
+
+</f:section>

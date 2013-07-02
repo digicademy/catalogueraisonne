@@ -1,0 +1,19 @@
+lib.tx_catalogueraisonne.LeafletMap = COA
+lib.tx_catalogueraisonne.LeafletMap.10 = TEXT
+lib.tx_catalogueraisonne.LeafletMap.10.dataWrap (
+
+<script type="text/javascript">
+var map = L.map('map').setView([{field:coordinates}], 13);
+L.marker([{field:coordinates}]).addTo(map);
+
+)
+
+lib.tx_catalogueraisonne.LeafletMap.20 = TEXT
+lib.tx_catalogueraisonne.LeafletMap.20.value (
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+</script>
+
+)

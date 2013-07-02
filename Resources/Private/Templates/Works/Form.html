@@ -1,0 +1,80 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:if condition="{data.pid} > 20">
+
+	<f:then>
+
+		<f:form action="search" id="tx_catalogueraisonne_works-form" class="tx_catalogueraisonne-searchform" pageUid="1647" section="maincontent">
+
+			<fieldset id="fulltext">
+				<legend><f:translate key="works.fulltext"/></legend>
+				<label for="searchterm"><f:translate key="works.entersearchterm" /></label>
+				<f:form.textfield id="searchterm" name="searchterm" value="{arguments.searchterm}" />
+			</fieldset>
+
+			<fieldset id="worksfilter">
+				<legend><f:translate key="works.worksfilter"/></legend>
+
+				<label for="type"><f:translate key="works.type" /></label>
+				<f:form.select name="worktype" value="{arguments.worktype}" options="{
+				0 : '',
+				10 : '{f:translate(key: \'works.type.I.10\')}',
+				20 : '{f:translate(key: \'works.type.I.20\')}',
+				30 : '{f:translate(key: \'works.type.I.30\')}',
+				40 : '{f:translate(key: \'works.type.I.40\')}',
+				50 : '{f:translate(key: \'works.type.I.50\')}'}"
+					/>
+
+				<label for="original_language"><f:translate key="works.original_language" /></label>
+				<f:form.select name="originalLanguage" value="{arguments.originalLanguage}" options="{
+				0 : '',
+				1 : '{f:translate(key: \'works.original_language.I.1\')}',
+				2 : '{f:translate(key: \'works.original_language.I.2\')}',
+				3 : '{f:translate(key: \'works.original_language.I.3\')}'}"
+					/>
+
+				<label for="authenticity"><f:translate key="works.authenticity" /></label>
+				<f:form.select name="authenticity" value="{arguments.authenticity}" options="{
+				99: '',
+				0 : '{f:translate(key: \'works.authenticity.I.0\')}',
+				1 : '{f:translate(key: \'works.authenticity.I.1\')}',
+				2 : '{f:translate(key: \'works.authenticity.I.2\')}',
+				3 : '{f:translate(key: \'works.authenticity.I.3\')}',
+				4 : '{f:translate(key: \'works.authenticity.I.4\')}'}"
+					/>
+
+				<p class="timelimitation"><f:translate key="timelimitation" /></p>
+
+				<label for="works_time_from" class="timelimitation"><f:translate key="time_from" /></label>
+				<f:form.textfield id="works_time_from" name="worksTimeFrom" value="{arguments.worksTimeFrom}" class="timelimitation" />
+
+				<label for="works_time_to" class="timelimitation"><f:translate key="time_to" /></label>
+				<f:form.textfield id="works_time_to" name="worksTimeTo" value="{arguments.worksTimeTo}" class="timelimitation" />
+			</fieldset>
+
+			<fieldset id="submitsearch">
+				<legend class="skip"><f:translate key="submit"/></legend>
+				<f:form.submit id="submit" class="button" name="submit" value="{f:translate(key: 'works.search', default: 'Search')}" />
+			</fieldset>
+
+		</f:form>
+
+	</f:then>
+
+	<f:else>
+
+		<f:form action="search" id="tx_catalogueraisonne_works-form" class="tx_catalogueraisonne-searchform" pageUid="1647" section="maincontent">
+			<fieldset>
+				<label class="skip" for="searchterm">{f:translate(key: 'literature.entersearchterm', default: 'Enter searchterm:')}</label>
+				<f:form.textfield id="searchterm" name="searchterm" value="{arguments.searchterm}" />
+				<f:form.hidden name="authenticity" value="99" />
+				<label for="submit" class="skip">{f:translate(key: 'works.submitlabel', default: 'Submit')}</label>
+				<f:form.submit id="submit" class="button" name="submit" value="{f:translate(key: 'works.search', default: 'Search')}" />
+			</fieldset>
+		</f:form>
+
+		<p><f:link.page pageUid="1642"><f:translate key="works.expertsearch" /></f:link.page></p>
+
+	</f:else>
+
+</f:if>

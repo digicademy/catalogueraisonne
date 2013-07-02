@@ -1,0 +1,40 @@
+lib.tx_catalogueraisonne.formatGWVNumber = TEXT
+lib.tx_catalogueraisonne.formatGWVNumber {
+
+	# get the value from FLUID template
+	field = identifier
+
+	# split by hyphen
+	split {
+		token = -
+		cObjNum = 1 |*| 2 |*| 3
+
+		# first split item: no .
+		1 = TEXT
+		1 {
+			current = 1
+			prioriCalc = intval
+		}
+
+		# middle split items: intval + . before
+		2 = TEXT
+		2 {
+			current = 1
+			prioriCalc = intval
+			wrap = .|
+			if.isPositive.data = current : 1
+		}
+
+		# last split item: might be a letter or 0, only execute when not 0
+		3 = TEXT
+		3 {
+			current = 1
+			wrap = .|
+			if {
+				value = 0
+				equals.data = current : 1
+				negate = 1
+			}
+		}
+	}
+}

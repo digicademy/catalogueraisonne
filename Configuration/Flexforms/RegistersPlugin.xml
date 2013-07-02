@@ -1,0 +1,40 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:registersPlugin.sheet.general</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.mode>
+						<TCEforms>
+							<label>LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:registersPlugin.settings.mode</label> 
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="10">
+										<numIndex index="0">LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:registersPlugin.settings.mode.works</numIndex>
+										<numIndex index="1">10</numIndex>
+									</numIndex>
+									<numIndex index="20">
+										<numIndex index="0">LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:registersPlugin.settings.mode.places</numIndex>
+										<numIndex index="1">20</numIndex>
+									</numIndex>
+									<numIndex index="30">
+										<numIndex index="0">LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:registersPlugin.settings.mode.persons</numIndex>
+										<numIndex index="1">30</numIndex>
+									</numIndex>
+									<numIndex index="40">
+										<numIndex index="0">LLL:EXT:catalogueraisonne/Resources/Private/Language/locallang_db.xml:registersPlugin.settings.mode.archives</numIndex>
+										<numIndex index="1">40</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.mode>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure> 

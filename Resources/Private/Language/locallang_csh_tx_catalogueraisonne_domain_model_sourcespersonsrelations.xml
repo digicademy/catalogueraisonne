@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Context Sensitive Help (CSH) for table tx_catalogueraisonne_domain_model_sourcespersonsrelations</description>
+        <type>CSH</type>
+        <csh_table>tx_catalogueraisonne_domain_model_sourcespersonsrelations</csh_table>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+			<label index="function.description">Each person has a specific function in respect to the source</label>
+			<label index="description.description">Further information about the persons function in respect to the source</label>			
+			<label index="work.description">The related source</label>
+			<label index="person.description">The related person</label>
+		</languageKey>
+        <languageKey index="de" type="array">
+			<label index="function.description">Jede Person steht mit einer Quelle in einer bestimmten Funktion in Beziehung</label>
+			<label index="description.description">Weitere Informationen über die Funktion der Person in Bezug zur Quelle</label>			
+			<label index="work.description">Ausgewählte Quelle</label>
+			<label index="person.description">Ausgewählte Person</label>
+		</languageKey>		
+    </data>
+</T3locallang>

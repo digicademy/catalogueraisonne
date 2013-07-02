@@ -1,0 +1,18 @@
+<f:if condition="{settings.mode} == 10">
+	<li><f:link.action action="show" controller="Works" arguments="{work : entry.uid}">{entry.title}</f:link.action></li>
+</f:if>
+<f:if condition="{settings.mode} == 20">
+	<li>
+		<f:link.action action="show" controller="Places" arguments="{place : entry}">{entry.name} 
+		<f:if condition="{entry.locality}">
+			<span>{entry.locality}</span>
+		</f:if>
+		</f:link.action>
+	</li>
+</f:if>
+<f:if condition="{settings.mode} == 30">
+	<li><f:link.action action="show" controller="Persons" arguments="{person : entry}">{entry.name}</f:link.action></li>
+</f:if>
+<f:if condition="{settings.mode} == 40">
+	<li><f:link.action action="show" controller="Archives" arguments="{archive : entry}">{entry.name} - {entry.description}</f:link.action></li>
+</f:if>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Context Sensitive Help (CSH) for table tx_catalogueraisonne_domain_model_sources</description>
+        <type>CSH</type>
+        <csh_table>tx_catalogueraisonne_domain_model_sources</csh_table>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+			<label index="signature.description">Unique identifier of the source</label>
+			<label index="category.description">The source's category (music or text)</label>
+			<label index="type.description">The type of the source</label>
+			<label index="subtype.description">A subtype of the source's type</label>
+			<label index="kind.description">The kind of source</label>
+			<label index="quality.description">The quality of the source</label>
+			<label index="description.description">Additional information about the source</label>
+			<label index="date_range.description">Normalized date information</label>
+			<label index="archive.description">The archive or institution in which the source is kept</label>
+			<label index="related_persons.description">Persons related to the source</label>																					
+		</languageKey>
+        <languageKey index="de" type="array">
+			<label index="signature.description">Die eindeutige Quellensignatur</label>
+			<label index="category.description">Die Quellenkategorie (Musik oder Text)</label>
+			<label index="type.description">Der Quellentypus</label>
+			<label index="subtype.description">Der Subtypus des Quellentyps</label>
+			<label index="kind.description">Die Überlieferungsform der Quelle</label>
+			<label index="quality.description">Die Überlieferungsqualität der Quelle</label>
+			<label index="description.description">Zusätzliche Informationen zur Quelle</label>
+			<label index="date_range.description">Die normalisierte Datierung der Quelle</label>
+			<label index="archive.description">Das Archiv oder die Institution in dem die Quelle liegt</label>
+			<label index="related_persons.description">Mit der Quelle in Beziehung stehende Personen</label>			
+		</languageKey>		
+    </data>
+</T3locallang>

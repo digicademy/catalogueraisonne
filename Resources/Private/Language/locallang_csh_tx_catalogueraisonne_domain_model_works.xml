@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Context Sensitive Help (CSH) for table tx_catalogueraisonne_domain_model_works</description>
+        <type>CSH</type>
+        <csh_table>tx_catalogueraisonne_domain_model_works</csh_table>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+			<label index="identifier.description">Unique identifier within the catalogue</label>
+			<label index="title.description">The title of the work</label>
+			<label index="naming.description">Naming of the work at it's time</label>
+			<label index="type.description">The type of the work (opera, sinfony etc.)</label>
+			<label index="instrumentation.description">The instrumentation for the work</label>
+			<label index="genesis.description">Information about the work's genesis</label>
+			<label index="premiere.description">Information about the premiere of the work</label>
+			<label index="dedication.description">Information from the title page to whom this work was dedicated</label>
+			<label index="history.description">History of the work including earliest reception dates</label>
+			<label index="urn.description">Unique resource name for the work</label>
+        	<label index="editor.description">The editor of teh work (used for citation information)</label>
+			<label index="anonymus_texts.description">Any texts/parts within the work that come from anonymus authors</label>
+			<label index="wotquenne_number.description">Number from the Wotquenne Catalogue</label>
+			<label index="commentary.description">Commentary information to the work</label>
+			<label index="place_of_premiere.description">Geographical location where the work's premiere took place</label>
+			<label index="date_range.description">Normalized date information for the work - necessary for the date search</label>
+			<label index="related_persons.description">Persons that are related to the work in a specific function (like composer, singer, publisher etc.)</label>
+			<label index="sources.description">Sources of the work</label>
+			<label index="staging_places.description">Other Places where the work was staged</label>
+			<label index="parts.description">The parts constitute the work as a whole</label>
+		</languageKey>
+        <languageKey index="de" type="array">
+			<label index="identifier.description">Eindeutige Kennzeichnung innerhalb des Werkverzeichnisses</label>
+			<label index="title.description">Der Titel des Werks</label>
+			<label index="naming.description">Bezeichnung des Werkes zu seiner Zeit</label>			
+			<label index="type.description">Der Werkstyp (z.B. Oper, Lied, etc.)</label>
+			<label index="instrumentation.description">Informationen zur Besetzung des Werkes in Textform</label>
+			<label index="genesis.description">Informationen zur Werksgeschichte (Fließtext)</label>
+			<label index="premiere.description">Informationen zur Uraufführung</label>
+			<label index="dedication.description">Widmungsinformationen oder Widmungsträger/-in</label>
+			<label index="history.description">Historische Informationen einschließlich früher Rezeptionsbezeugungen</label>
+			<label index="urn.description">Eindeutige URN für das Werk. Siehe http://de.wikipedia.org/wiki/URN</label>
+        	<label index="editor.description">Bearbeiter des Werkes (für Zitierhinweis)</label>
+			<label index="wotquenne_number.description">Die Nummer des Werks im Wotquenne Katalog</label>
+			<label index="commentary.description">Kommentar zum Werk</label>
+			<label index="anonymus_texts.description">Alle Textstellen innerhalb des Werkes mit anonymer Provenienz</label>
+			<label index="place_of_premiere.description">Ort der Uraufführung</label>
+			<label index="date_range.description">Normalisierte Datierung des Werkes - notwendig für den Datumsfilter</label>
+			<label index="related_persons.description">Mit dem Werk in Beziehung stehende Personen (Sänger, Textdichter, etc.)</label>
+			<label index="sources.description">Die Quellen für das Werk</label>
+			<label index="staging_places.description">Weitere Aufführungsorte für das Werk</label>
+			<label index="parts.description">Ein Werk besteht aus einer spezifischen Anzahl von Teilen</label>
+		</languageKey>		
+    </data>
+</T3locallang>

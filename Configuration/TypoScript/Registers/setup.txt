@@ -1,0 +1,6 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Registers/FiltersWorks.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Registers/FiltersPersons.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Registers/FiltersPlaces.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Registers/FiltersArchives.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Registers/LeafletMap.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:catalogueraisonne/Configuration/TypoScript/Registers/StaticCountry.txt">

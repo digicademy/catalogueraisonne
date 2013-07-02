@@ -1,0 +1,5 @@
+lib.tx_catalogueraisonne.currentDate = TEXT
+lib.tx_catalogueraisonne.currentDate {
+	data = date : U
+	strftime = %d.%m.%Y
+}

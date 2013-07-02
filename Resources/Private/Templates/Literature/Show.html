@@ -1,0 +1,91 @@
+{namespace cr = Tx_Catalogueraisonne_ViewHelpers}
+
+<f:debug title="komplette Literatur">{reference}</f:debug>
+
+<div id="tx_catalogueraisonne_literature-show">
+	<f:if condition="{pageUid} == 1643">
+		<h3>{f:translate(key: 'literature.yourresult', default: 'Your result:')}</h3>
+	</f:if>
+
+	<table>
+	<f:if condition="{reference.aut}">
+		<tr>
+			<th>{f:translate(key: 'literature.aut', default: 'Author(s)')}</th>
+			<td>{reference.aut}</td>
+		</tr>
+	</f:if>
+
+	<f:if condition="{reference.titel}">
+		<tr>
+			<th>{f:translate(key: 'literature.titel', default: 'Title:')}</th>
+			<td><f:format.raw>{reference.titel}</f:format.raw></td>
+		</tr>
+	</f:if>
+
+	<f:if condition="{reference.series}">
+		<tr>
+			<th>{f:translate(key: 'literature.series', default: 'Series:')}</th>
+			<td><f:format.raw>{reference.series}</f:format.raw></td>
+		</tr>
+	</f:if>
+
+	<f:if condition="{reference.ort}">
+		<tr>
+			<th>{f:translate(key: 'literature.ort', default: 'Publication place:')}</th>
+			<td>{reference.ort}</td>
+		</tr>
+	</f:if>
+
+	<f:if condition="{reference.jahr}">
+		<tr>
+			<th>{f:translate(key: 'literature.jahr', default: 'Publication year:')}</th>
+			<td>{reference.jahr}</td>
+		</tr>
+	</f:if>
+
+	<f:if condition="{reference.page}">
+		<tr>
+			<th>{f:translate(key: 'literature.page', default: 'Publication page:')}</th>
+			<td>{reference.page}</td>
+		</tr>
+	</f:if>
+
+	<f:if condition="{reference.isbn}">
+		<tr>
+			<th>{f:translate(key: 'literature.isbn', default: 'Publication ISBN/ISSN:')}</th>
+			<td>{reference.isbn}</td>
+		</tr>
+	</f:if>
+
+	<f:if condition="{pageUid} == 1659">
+		<f:if condition="{reference.cod}">
+			<tr>
+				<th>{f:translate(key: 'literature.cod', default: 'Description:')}</th>
+				<td>{reference.cod}</td>
+			</tr>
+		</f:if>
+		<f:if condition="{reference.ar}">
+			<tr>
+				<th>{f:translate(key: 'literature.ar', default: 'Material:')}</th>
+				<td>{reference.ar}</td>
+			</tr>
+		</f:if>
+		<f:if condition="{reference.qn}">
+			<tr>
+				<th>{f:translate(key: 'literature.qn', default: 'Reference:')}</th>
+				<td>{reference.qn}</td>
+			</tr>	
+		</f:if>
+		<f:if condition="{reference.bib}">
+			<tr>
+				<th>{f:translate(key: 'literature.bib', default: 'Library:')}</th>
+				<td>{reference.bib}</td>
+			</tr>
+		</f:if>
+	</f:if>
+
+	</table>
+	<f:comment>
+	<f:link.action class="actionlink" action="search" pageUid="{settings.literature.searchPid}" arguments="{searchterm : searchterm}">{f:translate(key: 'literature.back2list', default: 'Back to list...')}</f:link.action>
+	</f:comment>
+</div>
